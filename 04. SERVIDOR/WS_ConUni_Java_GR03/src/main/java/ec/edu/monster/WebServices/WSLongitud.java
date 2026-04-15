@@ -29,7 +29,7 @@ public class WSLongitud {
         if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirLongitud(valor, unidadOrigen, unidadDestino);
         } else {
-            return -410.0; 
+            return -999999.401; 
         }
     }
 }

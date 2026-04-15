@@ -28,7 +28,7 @@ ConversorMasa servicio = new ConversorMasa();
         if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirMasa(valor, unidadOrigen, unidadDestino);
         } else {
-            return -401.0; 
+            return -9999999.401; 
         }
     }
 }

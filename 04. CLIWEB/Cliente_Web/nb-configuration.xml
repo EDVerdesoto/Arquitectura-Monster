@@ -13,9 +13,8 @@ You can copy and paste the single properties, into the pom.xml file and the IDE 
 That way multiple projects can share the same settings (useful for formatting rules for example).
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
 -->
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_WSLogin>http://localhost:8080/WS_ConUni_Java_GR03/WSLogin?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WSLogin>
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_WSLongitud>http://localhost:8080/WS_ConUni_Java_GR03/WSLongitud?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WSLongitud>
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_WSMasa>http://localhost:8080/WS_ConUni_Java_GR03/WSMasa?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WSMasa>
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_WSTemperatura>http://localhost:8080/WS_ConUni_Java_GR03/WSTemperatura?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WSTemperatura>
+        <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>11-web</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>
+        <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>pfv5ee8</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
+        <org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>ide</org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>
     </properties>
 </project-shared-configuration>
