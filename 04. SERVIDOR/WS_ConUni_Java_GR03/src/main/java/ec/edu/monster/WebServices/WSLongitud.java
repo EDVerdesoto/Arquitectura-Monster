@@ -23,14 +23,13 @@ public class WSLongitud {
             @WebParam(name = "valor") double valor, 
             @WebParam(name = "unidadOrigen") String unidadOrigen, 
             @WebParam(name = "unidadDestino") String unidadDestino,
-            @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "clave") String clave) {
+            @WebParam(name = "token") String token) {
         
         // Validación de seguridad obligatoria
-        if ("monster".equals(usuario) && "monster9".equals(clave)) {
+        if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirLongitud(valor, unidadOrigen, unidadDestino);
         } else {
-            return -1.0; // Error de autenticación
+            return -410.0; 
         }
     }
 }

@@ -11,28 +11,38 @@ package ec.edu.monster.servicios;
 public class ConversorMasa {
 
     public double convertirMasa(double valor, String unidadOrigen, String unidadDestino) {
+        
+        if (valor < 0) {
+            return -2.0; //codigo de error para numero negativo
+        }
+        
         double valorEnKilos = 0.0;
         String origen = unidadOrigen.toLowerCase();
         String destino = unidadDestino.toLowerCase();
+        
+        try {
+            //Lleva cualquier unidad a kg
+            switch (origen) {
+                case "gramos": valorEnKilos = valor / 1000.0; break;
+                case "kilogramos": valorEnKilos = valor; break;
+                case "onzas": valorEnKilos = valor * 0.0283495; break;
+                case "libras": valorEnKilos = valor * 0.453592; break;
+                case "quintales": valorEnKilos = (valor * 100.0) * 0.453592; break; 
+                default: return -1.0; //codigo de error para unidad no existente
+            }
 
-        //Lleva cualquier unidad a kg
-        switch (origen) {
-            case "gramos": valorEnKilos = valor / 1000.0; break;
-            case "kilogramos": valorEnKilos = valor; break;
-            case "onzas": valorEnKilos = valor * 0.0283495; break;
-            case "libras": valorEnKilos = valor * 0.453592; break;
-            case "quintales": valorEnKilos = (valor * 100.0) * 0.453592; break; 
-            default: return -1.0;
+            //De kg a la unidad destino
+            switch (destino) {
+                case "gramos": return valorEnKilos * 1000.0;
+                case "kilogramos": return valorEnKilos;
+                case "onzas": return valorEnKilos / 0.0283495;
+                case "libras": return valorEnKilos / 0.453592;
+                case "quintales": return (valorEnKilos / 0.453592) / 100.0;
+                default: return -1.0; //codigo de error de unidad no existente 
+            }
+        } catch (Exception e) {
+            return -500.0; //error de calculo 
         }
 
-        //De kg a la unidad destino
-        switch (destino) {
-            case "gramos": return valorEnKilos * 1000.0;
-            case "kilogramos": return valorEnKilos;
-            case "onzas": return valorEnKilos / 0.0283495;
-            case "libras": return valorEnKilos / 0.453592;
-            case "quintales": return (valorEnKilos / 0.453592) / 100.0;
-            default: return -1.0;
-        }
     }
 }

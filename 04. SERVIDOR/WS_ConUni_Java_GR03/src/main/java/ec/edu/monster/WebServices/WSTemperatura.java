@@ -23,13 +23,12 @@ public class WSTemperatura {
             @WebParam(name = "valor") double valor, 
             @WebParam(name = "opcionOrigen") String opcionOrigen, 
             @WebParam(name = "opcionDestino") String opcionDestino,
-            @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "clave") String clave) {
+            @WebParam(name = "token") String token) {
         
-        if ("monster".equals(usuario) && "monster9".equals(clave)) {
+        if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirTemperatura(valor, opcionOrigen, opcionDestino);
         } else {
-            return -9999.99; 
+            return -401.0; 
         }
     }
 }

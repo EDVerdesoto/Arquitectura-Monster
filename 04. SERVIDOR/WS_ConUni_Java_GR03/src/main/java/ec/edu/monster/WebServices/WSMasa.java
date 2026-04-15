@@ -23,13 +23,12 @@ ConversorMasa servicio = new ConversorMasa();
             @WebParam(name = "valor") double valor, 
             @WebParam(name = "unidadOrigen") String unidadOrigen, 
             @WebParam(name = "unidadDestino") String unidadDestino,
-            @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "clave") String clave) {
+            @WebParam(name = "token") String token) {
         
-        if ("monster".equals(usuario) && "monster9".equals(clave)) {
+        if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirMasa(valor, unidadOrigen, unidadDestino);
         } else {
-            return -1.0; 
+            return -401.0; 
         }
     }
 }
