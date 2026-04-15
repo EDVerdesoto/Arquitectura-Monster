@@ -12,26 +12,26 @@ public class ConversorLongitud {
 
     public double convertirLongitud(double valor, String unidadOrigen, String unidadDestino) {
         double valorEnMetros = 0.0;
-        String origen = unidadOrigen.toLowerCase();
-        String destino = unidadDestino.toLowerCase();
+        String origen = unidadOrigen.toLowerCase().trim();
+        String destino = unidadDestino.toLowerCase().trim();
 
         //Lleva cualquier unidad a metros
         switch (origen) {
-            case "milimetros": valorEnMetros = valor / 1000.0; break;
             case "centimetros": valorEnMetros = valor / 100.0; break;
-            case "metros": valorEnMetros = valor; break;
-            case "decametros": valorEnMetros = valor * 10.0; break;
-            case "kilometros": valorEnMetros = valor * 1000.0; break;
+            case "metros":      valorEnMetros = valor; break;
+            case "pies":        valorEnMetros = valor * 0.3048; break;
+            case "yardas":      valorEnMetros = valor * 0.9144; break;
+            case "millas":      valorEnMetros = valor * 1609.34; break;
             default: return -1.0; 
         }
 
         //Lleva de metros a la unidad de destino
         switch (destino) {
-            case "milimetros": return valorEnMetros * 1000.0;
             case "centimetros": return valorEnMetros * 100.0;
-            case "metros": return valorEnMetros;
-            case "decametros": return valorEnMetros / 10.0;
-            case "kilometros": return valorEnMetros / 1000.0;
+            case "metros":      return valorEnMetros;
+            case "pies":        return valorEnMetros / 0.3048;
+            case "yardas":      return valorEnMetros / 0.9144;
+            case "millas":      return valorEnMetros / 1609.34;
             default: return -1.0;
         }
     }
