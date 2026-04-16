@@ -70,7 +70,7 @@ public class LoginFrame extends javax.swing.JFrame {
         lblNotificaciones.setForeground(new java.awt.Color(232, 65, 24));
 
         icono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icono.setIcon(new javax.swing.ImageIcon("C:\\Users\\joanc\\Downloads\\monsterlogin.jpg")); // NOI18N
+        icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/monster/clienteescritorio/vista/monsterlogin.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

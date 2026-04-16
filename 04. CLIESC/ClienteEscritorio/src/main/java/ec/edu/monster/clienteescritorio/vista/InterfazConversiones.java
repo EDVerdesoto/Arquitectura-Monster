@@ -123,7 +123,7 @@ public class InterfazConversiones extends javax.swing.JFrame {
         lblOrigen.setForeground(new java.awt.Color(242, 242, 242));
         lblOrigen.setText("Unidad de origen");
 
-        lblFlecha.setIcon(new javax.swing.ImageIcon("C:\\Users\\joanc\\Downloads\\flecha40px.png")); // NOI18N
+        lblFlecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/monster/clienteescritorio/vista/flecha40px.png"))); // NOI18N
 
         lblDestino.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblDestino.setForeground(new java.awt.Color(242, 242, 242));
