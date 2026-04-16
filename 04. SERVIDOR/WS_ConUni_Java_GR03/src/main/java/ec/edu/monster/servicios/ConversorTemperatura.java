@@ -22,7 +22,7 @@ public class ConversorTemperatura {
                 case "celsius": valorEnCelsius = valor; break;
                 case "newton": valorEnCelsius = valor * 100.0 / 33.0; break;
                 case "reaumur": valorEnCelsius = valor * 5.0 / 4.0; break;
-                default: return -9999.99; 
+                default: return -999999.404; 
             }
 
             //Lleva de celsius a la unidad de destino
@@ -32,10 +32,10 @@ public class ConversorTemperatura {
                 case "celsius": return valorEnCelsius;
                 case "newton": return valorEnCelsius * 33.0 / 100.0;
                 case "reaumur": return valorEnCelsius * 4.0 / 5.0;
-                default: return -9999.99;
+                default: return -999999.404;
             }
         }catch (Exception e) {
-            return -500.0; //error de calculo 
+            return -999999.500; //error de calculo 
         }
     }
 }

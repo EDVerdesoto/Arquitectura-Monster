@@ -28,7 +28,7 @@ public class WSTemperatura {
         if (WSLogin.tokensValidos.containsKey(token)) {
             return servicio.convertirTemperatura(valor, opcionOrigen, opcionDestino);
         } else {
-            return -401.0; 
+            return -9999999.401; 
         }
     }
 }

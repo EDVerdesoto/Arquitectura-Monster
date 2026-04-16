@@ -13,10 +13,6 @@ public class ConversorLongitud {
     public double convertirLongitud(double valor, String unidadOrigen, String unidadDestino) {
         double valorEnMetros = 0.0;
         
-        if (valor < 0) {
-            return -2.0; //codigo de error para numero negativo
-        }
-        
         String origen = unidadOrigen.toLowerCase().trim();
         String destino = unidadDestino.toLowerCase().trim();
         
@@ -28,7 +24,7 @@ public class ConversorLongitud {
                 case "pies":        valorEnMetros = valor * 0.3048; break;
                 case "yardas":      valorEnMetros = valor * 0.9144; break;
                 case "millas":      valorEnMetros = valor * 1609.34; break;
-                default: return -1.0; 
+                default: return -999999.404; 
             }
 
             //Lleva de metros a la unidad de destino
@@ -38,10 +34,10 @@ public class ConversorLongitud {
                 case "pies":        return valorEnMetros / 0.3048;
                 case "yardas":      return valorEnMetros / 0.9144;
                 case "millas":      return valorEnMetros / 1609.34;
-                default: return -1.0;
+                default: return -999999.404;
             }
         } catch (Exception e) {
-            return -500.0; //error de calculo 
+            return -999999.500; //error de calculo 
         }
     }
 }
