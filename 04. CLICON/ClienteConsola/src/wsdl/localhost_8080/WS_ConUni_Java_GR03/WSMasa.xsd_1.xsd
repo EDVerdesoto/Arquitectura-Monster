@@ -9,8 +9,7 @@
 <xs:element name="valor" type="xs:double"/>
 <xs:element name="unidadOrigen" type="xs:string" minOccurs="0"/>
 <xs:element name="unidadDestino" type="xs:string" minOccurs="0"/>
-<xs:element name="usuario" type="xs:string" minOccurs="0"/>
-<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="token" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

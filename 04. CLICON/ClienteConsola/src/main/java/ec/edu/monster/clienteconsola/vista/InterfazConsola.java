@@ -1,8 +1,10 @@
+package ec.edu.monster.clienteconsola.vista;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ec.edu.monster.clienteconsola;
+
 
 import java.util.Scanner;
 
@@ -65,5 +67,10 @@ public class InterfazConsola {
             System.out.println("Debe ser un número válido.");
             return null;
         }
+    }
+    
+    public String pedirTexto(String mensaje) {
+        System.out.print(mensaje);
+        return entrada.nextLine().trim();
     }
 }
