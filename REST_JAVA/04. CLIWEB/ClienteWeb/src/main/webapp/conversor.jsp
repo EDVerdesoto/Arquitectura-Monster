@@ -230,7 +230,6 @@
         </form>
 
         <div id="errorTxt" class="error"></div>
-        <a href="index.jsp" class="logout">Cerrar Sesión</a>
     </div>
 </body>
 </html>
