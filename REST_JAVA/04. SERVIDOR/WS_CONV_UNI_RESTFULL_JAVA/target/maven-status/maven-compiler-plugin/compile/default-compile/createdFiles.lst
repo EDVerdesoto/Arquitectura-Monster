@@ -1,0 +1,9 @@
+ec\edu\monster\controlador\ConversorController.class
+ec\edu\monster\servicio\ConversorTemperatura.class
+ec\edu\monster\servicio\ServicioAuth.class
+ec\edu\monster\config\ConvUnitApplication.class
+ec\edu\monster\config\CORSFilter.class
+ec\edu\monster\modelo\Conversion.class
+ec\edu\monster\servicio\ConversorLongitud.class
+ec\edu\monster\servicio\ConversorMasa.class
+ec\edu\monster\controlador\AuthController.class
