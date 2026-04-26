@@ -101,7 +101,12 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<<<<<<< Updated upstream:SOAP_EN_JAVA/04. CLICON/ClienteConsola/pom.xml
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>ec.edu.monster.clienteconsola.ClienteConsola</exec.mainClass>
+=======
+        <maven.compiler.release>17</maven.compiler.release>
+        <exec.mainClass>ec.edu.monster.clienteescritorio.ClienteEscritorio</exec.mainClass>
+>>>>>>> Stashed changes:04. CLIESC/ClienteEscritorio/pom.xml
     </properties>
 </project>
