@@ -1,5 +1,14 @@
-/04. SERVIDOR/WS_ConUni_Java_GR03/target/
-/04. CLICON/ClienteConsola/target/
-/04. CLIWEB/ClienteWeb/target/
-/04. CLIESC/ClienteEscritorio/target/
-/04. CLIWEB/Cliente_Web/target/
+# Maven
+target/
+
+# Binarios Java
+*.class
+*.jar
+*.war
+
+# Maven metadata
+**/maven-status/
+
+# IDE basura
+*.ser
+*.sws
