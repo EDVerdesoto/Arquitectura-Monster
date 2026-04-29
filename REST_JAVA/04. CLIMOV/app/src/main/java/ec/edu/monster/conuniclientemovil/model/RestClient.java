@@ -175,9 +175,17 @@ public class RestClient {
             }
             reader.close();
 
-            String responseString = responseBuilder.toString();
+            String responseString = responseBuilder.toString().trim();
             if (responseString.isEmpty()) {
                 throw new IOException("Respuesta vacía del servidor (HTTP " + statusCode + ").");
+            }
+
+            // Detectar si el servidor devolvió HTML en vez de JSON
+            if (responseString.startsWith("<") || responseString.startsWith("<!")) {
+                throw new IOException(
+                        "URL incorrecta — el servidor devolvió HTML en vez de JSON. "
+                        + "Verifica que la URL base apunte al servicio REST correcto. "
+                        + "URL usada: " + endpoint);
             }
 
             return new JSONObject(responseString);
