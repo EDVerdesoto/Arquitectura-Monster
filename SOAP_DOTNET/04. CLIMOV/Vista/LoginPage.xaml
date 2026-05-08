@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteMovil.Vista.LoginPage"
+             BackgroundColor="#0D0D0D">
+
+    <ScrollView>
+        <Grid Padding="20" 
+              RowDefinitions="Auto"
+              ColumnDefinitions="Auto, Auto" 
+              HorizontalOptions="Center" 
+              ColumnSpacing="20">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="16" Margin="0,20,0,0" MaximumWidthRequest="400">
+
+                <Label Text="Ingrese sus credenciales:"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#F2F2F2"
+                       Margin="0,0,0,16" />
+
+                <Border x:Name="MensajeFrame"
+                        IsVisible="false"
+                        Padding="12"
+                        StrokeShape="RoundRectangle 8"
+                        StrokeThickness="0"
+                        Margin="0,0,0,10">
+                    <Label x:Name="MensajeLabel"
+                           FontSize="14"
+                           TextColor="#F2F2F2"
+                           HorizontalOptions="Center" />
+                </Border>
+
+                <Label Text="Usuario" FontSize="14" TextColor="#F2F2F2" />
+                <Entry x:Name="UsuarioEntry"
+                       Placeholder="Ingrese su usuario"
+                       FontSize="16"
+                       TextColor="#F2F2F2"
+                       Margin="0,0,0,10" />
+
+                <Label Text="Contrasena" FontSize="14" TextColor="#F2F2F2" />
+                <Entry x:Name="ClaveEntry"
+                       Placeholder="Ingrese su contrasena"
+                       IsPassword="True"
+                       FontSize="16"
+                       TextColor="#F2F2F2"
+                       Margin="0,0,0,10" />
+
+                <Button x:Name="LoginButton"
+                        Text="INICIAR SESION"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        BackgroundColor="#527AF2"
+                        TextColor="#F2F2F2"
+                        Clicked="OnLoginClicked"
+                        Margin="0,0,0,10" />
+
+                <Button x:Name="ToggleRecuperarButton"
+                        Text="RECUPERAR CONTRASENA"
+                        FontSize="14"
+                        BackgroundColor="Transparent"
+                        TextColor="#527AF2"
+                        Clicked="OnToggleRecuperarClicked" />
+
+                <Border x:Name="RecuperarFrame"
+                        IsVisible="false"
+                        Padding="15"
+                        StrokeShape="RoundRectangle 8"
+                        Stroke="#404040"
+                        BackgroundColor="#1A1A1A"
+                        Margin="0,10,0,0">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Recuperar Contrasena"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#F2F2F2" />
+                        <Label Text="Usuario" FontSize="14" TextColor="#F2F2F2" />
+                        <Entry x:Name="UsuarioRecuperarEntry"
+                               Placeholder="Ingrese su usuario"
+                               FontSize="16"
+                               TextColor="#F2F2F2" />
+                        <Button x:Name="RecuperarButton"
+                                FontAttributes="Bold"
+                                Text="RECUPERAR"
+                                FontSize="14"
+                                BackgroundColor="#527AF2"
+                                TextColor="#F2F2F2"
+                                Clicked="OnRecuperarClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+
+            <Image Grid.Column="1"
+                   Source="monsterlogin.jpg"
+                   Aspect="AspectFit"
+                   MaximumWidthRequest="300"
+                   MaximumHeightRequest="400"
+                   VerticalOptions="Center"
+                   Margin="16,0,0,0" />
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

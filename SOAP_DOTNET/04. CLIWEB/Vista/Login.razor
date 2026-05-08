@@ -1,0 +1,87 @@
+@page "/login"
+@inject ClienteWeb.Modelo.ServicioSesion Sesion
+@inject ClienteWeb.Controlador.AuthControlador AuthControlador
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageTitle>Iniciar Sesion</PageTitle>
+
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-5">
+            <h3>Iniciar Sesion</h3>
+            <hr />
+
+            @if (!string.IsNullOrEmpty(mensaje))
+            {
+                <div class="alert @(exito ? "alert-success" : "alert-danger")" role="alert">
+                    @mensaje
+                </div>
+            }
+
+            <div class="mb-3">
+                <label for="usuario" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="usuario" @bind="usuario" placeholder="Ingrese su usuario" />
+            </div>
+            <div class="mb-3">
+                <label for="clave" class="form-label">Contrasena</label>
+                <input type="password" class="form-control" id="clave" @bind="clave" placeholder="Ingrese su contrasena" />
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" @onclick="IniciarSesion">Iniciar Sesion</button>
+                <button class="btn btn-link" @onclick="ToggleRecuperar">Recuperar Contrasena</button>
+            </div>
+
+            @if (mostrarRecuperar)
+            {
+                <div class="mt-4 p-3 border rounded bg-light">
+                    <h5>Recuperar Contrasena</h5>
+                    <div class="mb-3">
+                        <label for="usuarioRecuperar" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="usuarioRecuperar" @bind="usuarioRecuperar" placeholder="Ingrese su usuario" />
+                    </div>
+                    <button class="btn btn-secondary" @onclick="RecuperarContrasena">Recuperar</button>
+                </div>
+            }
+        </div>
+        <div class="col-md-7 text-center">
+            <img src="Media/monsterlogin.jpg" alt="Monster Login" class="img-fluid rounded" style="max-height: 500px;" />
+        </div>
+    </div>
+</div>
+
+@code {
+    private string usuario = string.Empty;
+    private string clave = string.Empty;
+    private string usuarioRecuperar = string.Empty;
+    private string mensaje = string.Empty;
+    private bool exito = false;
+    private bool mostrarRecuperar = false;
+
+    private async Task IniciarSesion()
+    {
+        mensaje = string.Empty;
+        var resultado = await AuthControlador.IniciarSesionAsync(usuario, clave);
+        exito = resultado.exito;
+        mensaje = resultado.mensaje;
+
+        if (exito)
+        {
+            Navigation.NavigateTo("/conversion");
+        }
+    }
+
+    private void ToggleRecuperar()
+    {
+        mostrarRecuperar = !mostrarRecuperar;
+        mensaje = string.Empty;
+    }
+
+    private async Task RecuperarContrasena()
+    {
+        mensaje = string.Empty;
+        var resultado = await AuthControlador.RecuperarContrasenaAsync(usuarioRecuperar);
+        exito = resultado.exito;
+        mensaje = resultado.mensaje;
+    }
+}
