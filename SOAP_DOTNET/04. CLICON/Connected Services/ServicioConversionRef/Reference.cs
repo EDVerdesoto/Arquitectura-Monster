@@ -297,7 +297,7 @@ namespace ServicioConversionRef
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IServicioConversion))
             {
-                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                System.ServiceModel.BasicHttpsBinding result = new System.ServiceModel.BasicHttpsBinding();
                 result.MaxBufferSize = int.MaxValue;
                 result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
                 result.MaxReceivedMessageSize = int.MaxValue;
@@ -311,7 +311,7 @@ namespace ServicioConversionRef
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IServicioConversion))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:57487/ServicioConversion.svc");
+                return new System.ServiceModel.EndpointAddress("https://server_soap.dr00p3r.top/Controlador/ServicioConversion.svc");
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }

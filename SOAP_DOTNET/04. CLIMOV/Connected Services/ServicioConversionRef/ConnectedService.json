@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:57487/Controlador/ServicioConversion.svc"
+      "https://server_soap.dr00p3r.top/Controlador/ServicioConversion.svc"
     ],
     "collectionTypes": [
       "System.Array",
@@ -11,6 +11,7 @@
       "*, ServicioConversionRef"
     ],
     "references": [
+      "C:\\MonsterProjects\\Arquitectura-Monster\\SOAP_DOTNET\\04. CLIMOV\\bin\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\Microsoft.Web.WebView2.Core.Projection.dll",
       "Microsoft.Bcl.AsyncInterfaces, {Microsoft.Bcl.AsyncInterfaces, 5.0.0}",
       "Microsoft.Extensions.Configuration, {Microsoft.Extensions.Configuration, 10.0.0}",
       "Microsoft.Extensions.Configuration.Abstractions, {Microsoft.Extensions.Configuration.Abstractions, 10.0.0}",

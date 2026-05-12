@@ -16,6 +16,9 @@ target/
 **/bin/
 **/obj/
 
+**\bin\
+**\obj\
+
 # Visual Studio
 **/.vs/
 

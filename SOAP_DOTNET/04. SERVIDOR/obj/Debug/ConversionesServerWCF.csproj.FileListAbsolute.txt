@@ -1,7 +1,0 @@
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\bin\ConversionesServerWCF.dll.config
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\bin\ConversionesServerWCF.dll
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\bin\ConversionesServerWCF.pdb
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\obj\Debug\ConversionesServerWCF.csproj.AssemblyReference.cache
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\obj\Debug\ConversionesServerWCF.csproj.CoreCompileInputs.cache
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\obj\Debug\ConversionesServerWCF.dll
-C:\MonsterProjects\DOTNET\ConversionesServerWCF\obj\Debug\ConversionesServerWCF.pdb

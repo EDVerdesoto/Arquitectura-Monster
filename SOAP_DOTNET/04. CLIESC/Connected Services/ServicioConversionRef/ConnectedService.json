@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:57487/Controlador/ServicioConversion.svc"
+      "https://server_soap.dr00p3r.top/Controlador/ServicioConversion.svc"
     ],
     "collectionTypes": [
       "System.Array",

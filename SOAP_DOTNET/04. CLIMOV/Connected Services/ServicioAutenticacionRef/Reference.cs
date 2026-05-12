@@ -15,8 +15,6 @@ namespace ServicioAutenticacionRef
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudCambioClave))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudRecuperarClave))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudCredenciales))]
     public partial class SolicitudBase : object
     {
@@ -33,80 +31,6 @@ namespace ServicioAutenticacionRef
             set
             {
                 this.TokenField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudCambioClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
-    public partial class SolicitudCambioClave : ServicioAutenticacionRef.SolicitudBase
-    {
-        
-        private string ClaveAntiguaField;
-        
-        private string ClaveNuevaField;
-        
-        private string UsuarioField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ClaveAntigua
-        {
-            get
-            {
-                return this.ClaveAntiguaField;
-            }
-            set
-            {
-                this.ClaveAntiguaField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ClaveNueva
-        {
-            get
-            {
-                return this.ClaveNuevaField;
-            }
-            set
-            {
-                this.ClaveNuevaField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usuario
-        {
-            get
-            {
-                return this.UsuarioField;
-            }
-            set
-            {
-                this.UsuarioField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
-    public partial class SolicitudRecuperarClave : ServicioAutenticacionRef.SolicitudBase
-    {
-        
-        private string UsuarioField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usuario
-        {
-            get
-            {
-                return this.UsuarioField;
-            }
-            set
-            {
-                this.UsuarioField = value;
             }
         }
     }
@@ -151,7 +75,6 @@ namespace ServicioAutenticacionRef
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.RespuestaRecuperarClave))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.RespuestaCredenciales))]
     public partial class RespuestaBase : object
     {
@@ -189,28 +112,6 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
-    public partial class RespuestaRecuperarClave : ServicioAutenticacionRef.RespuestaBase
-    {
-        
-        private string ClaveRecuperadaField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ClaveRecuperada
-        {
-            get
-            {
-                return this.ClaveRecuperadaField;
-            }
-            set
-            {
-                this.ClaveRecuperadaField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaCredenciales", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class RespuestaCredenciales : ServicioAutenticacionRef.RespuestaBase
     {
@@ -238,12 +139,6 @@ namespace ServicioAutenticacionRef
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAutenticacion/ValidarCredenciales", ReplyAction="http://tempuri.org/IServicioAutenticacion/ValidarCredencialesResponse")]
         System.Threading.Tasks.Task<ServicioAutenticacionRef.RespuestaCredenciales> ValidarCredencialesAsync(ServicioAutenticacionRef.SolicitudCredenciales solicitud);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAutenticacion/CambiarContrasena", ReplyAction="http://tempuri.org/IServicioAutenticacion/CambiarContrasenaResponse")]
-        System.Threading.Tasks.Task<ServicioAutenticacionRef.RespuestaBase> CambiarContrasenaAsync(ServicioAutenticacionRef.SolicitudCambioClave solicitud);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAutenticacion/RecuperarContrasena", ReplyAction="http://tempuri.org/IServicioAutenticacion/RecuperarContrasenaResponse")]
-        System.Threading.Tasks.Task<ServicioAutenticacionRef.RespuestaRecuperarClave> RecuperarContrasenaAsync(ServicioAutenticacionRef.SolicitudRecuperarClave solicitud);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
@@ -301,16 +196,6 @@ namespace ServicioAutenticacionRef
             return base.Channel.ValidarCredencialesAsync(solicitud);
         }
         
-        public System.Threading.Tasks.Task<ServicioAutenticacionRef.RespuestaBase> CambiarContrasenaAsync(ServicioAutenticacionRef.SolicitudCambioClave solicitud)
-        {
-            return base.Channel.CambiarContrasenaAsync(solicitud);
-        }
-        
-        public System.Threading.Tasks.Task<ServicioAutenticacionRef.RespuestaRecuperarClave> RecuperarContrasenaAsync(ServicioAutenticacionRef.SolicitudRecuperarClave solicitud)
-        {
-            return base.Channel.RecuperarContrasenaAsync(solicitud);
-        }
-        
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
@@ -327,7 +212,7 @@ namespace ServicioAutenticacionRef
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IServicioAutenticacion))
             {
-                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                System.ServiceModel.BasicHttpsBinding result = new System.ServiceModel.BasicHttpsBinding();
                 result.MaxBufferSize = int.MaxValue;
                 result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
                 result.MaxReceivedMessageSize = int.MaxValue;
@@ -341,7 +226,7 @@ namespace ServicioAutenticacionRef
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IServicioAutenticacion))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:57487/Controlador/ServicioAutenticacion.svc");
+                return new System.ServiceModel.EndpointAddress("https://server_soap.dr00p3r.top/Controlador/ServicioAutenticacion.svc");
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }
