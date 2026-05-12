@@ -29,7 +29,7 @@ public class ClienteConsola {
             }
         }
         
-        System.out.println("Sesión iniciada con éxito\n");
+        System.out.println("Sesion iniciada con exito\n");
         
         
         OpcionMenu opcion;
@@ -92,7 +92,7 @@ public class ClienteConsola {
             double result = operacion.ejecutar(valor, origen.name(), destino.name());
             System.out.println("Resultado = " + result);
         } catch (Exception ex) {
-            System.err.println("Error durante la conversión: " + ex.getMessage());
+            System.err.println("Error durante la conversion: " + ex.getMessage());
         }
     }
 }

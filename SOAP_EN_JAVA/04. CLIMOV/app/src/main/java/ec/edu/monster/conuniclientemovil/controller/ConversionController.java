@@ -10,13 +10,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * Controlador que coordina las operaciones de login y conversión.
- *
- * Recibe acciones del View, invoca al Model (SoapClient, SoapErrorMapper)
- * y devuelve resultados tipados (LoginResult, ConversionResult)
- * mediante callbacks que el View renderiza.
- */
 public class ConversionController {
 
     /**

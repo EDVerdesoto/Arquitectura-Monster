@@ -7,12 +7,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * Controlador dedicado a la operación de login.
- *
- * Recibe la acción del LoginActivity (View), invoca al SoapClient (Model)
- * y devuelve un LoginResult mediante callback.
- */
 public class LoginController {
 
     /**

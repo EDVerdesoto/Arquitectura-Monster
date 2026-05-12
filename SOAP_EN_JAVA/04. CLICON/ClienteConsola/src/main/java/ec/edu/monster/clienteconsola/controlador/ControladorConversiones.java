@@ -14,7 +14,7 @@ public class ControladorConversiones {
     private String token;
     
     public boolean iniciarSesion(String usuario, String clave) {
-        String msgCredencialesInvalidas = "ERROR: Credenciales inválidas";
+        String msgCredencialesInvalidas = "ERROR: Credenciales invalidas";
         
         try {
             WSLogin_Service service = new WSLogin_Service();
@@ -25,7 +25,7 @@ public class ControladorConversiones {
             }
             return true;
         } catch (Exception e) {
-            System.err.println("Error en la comunicación con el servicio: " + e.getMessage());
+            System.err.println("Error en la comunicacion con el servicio: " + e.getMessage());
             return false;
         }
     }
