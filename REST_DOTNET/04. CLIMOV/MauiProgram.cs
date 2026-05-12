@@ -20,10 +20,17 @@ namespace ClienteMovil
 
             builder.Services.AddSingleton<ServicioSesion>();
 
-            builder.Services.AddHttpClient<AuthControlador>(client =>
-                client.BaseAddress = new Uri("https://localhost:5001/"));
-            builder.Services.AddHttpClient<ConversionControlador>(client =>
-                client.BaseAddress = new Uri("https://localhost:5001/"));
+            builder.Services.AddTransient(sp =>
+            {
+                var client = new HttpClient { BaseAddress = new Uri("https://server_rest.dr00p3r.top/") };
+                return new AuthControlador(sp.GetRequiredService<ServicioSesion>(), client);
+            });
+
+            builder.Services.AddTransient(sp =>
+            {
+                var client = new HttpClient { BaseAddress = new Uri("https://server_rest.dr00p3r.top/") };
+                return new ConversionControlador(sp.GetRequiredService<ServicioSesion>(), client);
+            });
 
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<ConversionPage>();

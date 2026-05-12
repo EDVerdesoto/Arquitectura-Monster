@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace ClienteMovil.Modelo
+namespace ClienteEscritorio.Modelo
 {
     public class ServicioSesion : INotifyPropertyChanged
     {

@@ -16,6 +16,9 @@ namespace ConversionesServerAPI.Controlador
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad no puede estar vacía" });
+
                 double enMetros = solicitud.UnidadOrigen.ToLower() switch
                 {
                     "centimetros" => solicitud.Valor / 100.0,
@@ -27,7 +30,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(enMetros))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no válida" });
 
                 double resultado = solicitud.UnidadDestino.ToLower() switch
                 {
@@ -40,7 +43,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(resultado))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no válida" });
 
                 return Ok(new ConversionResponse { Exito = true, ValorConvertido = resultado });
             }
@@ -59,6 +62,9 @@ namespace ConversionesServerAPI.Controlador
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad no puede estar vacía" });
+
                 double enCelsius = solicitud.UnidadOrigen.ToLower() switch
                 {
                     "celsius" => solicitud.Valor,
@@ -70,7 +76,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(enCelsius))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no válida" });
 
                 double resultado = solicitud.UnidadDestino.ToLower() switch
                 {
@@ -83,7 +89,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(resultado))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no válida" });
 
                 return Ok(new ConversionResponse { Exito = true, ValorConvertido = resultado });
             }
@@ -102,6 +108,9 @@ namespace ConversionesServerAPI.Controlador
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad no puede estar vacía" });
+
                 double enKilogramos = solicitud.UnidadOrigen.ToLower() switch
                 {
                     "onzas" => solicitud.Valor * 0.0283495,
@@ -113,7 +122,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(enKilogramos))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de origen no válida" });
 
                 double resultado = solicitud.UnidadDestino.ToLower() switch
                 {
@@ -126,7 +135,7 @@ namespace ConversionesServerAPI.Controlador
                 };
 
                 if (double.IsNaN(resultado))
-                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no valida" });
+                    return Ok(new ConversionResponse { Exito = false, MensajeError = "Unidad de destino no válida" });
 
                 return Ok(new ConversionResponse { Exito = true, ValorConvertido = resultado });
             }
@@ -142,6 +151,9 @@ namespace ConversionesServerAPI.Controlador
             var token = ExtraerToken();
             if (!AlmacenamientoAutenticacion.ValidarToken(token))
                 return Ok(new ValidarNumericoResponse { Exito = false, MensajeError = "Token no autorizado" });
+
+            if (string.IsNullOrEmpty(solicitud.ValorStr))
+                return Ok(new ValidarNumericoResponse { Exito = false, MensajeError = "Valor no puede estar vacío" });
 
             bool valido = double.TryParse(solicitud.ValorStr, out _);
             return Ok(new ValidarNumericoResponse { Exito = true, EsValido = valido });

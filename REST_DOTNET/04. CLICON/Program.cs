@@ -1,99 +1,117 @@
-﻿using ClienteConsola.Controlador;
+﻿using System;
 using ClienteConsola.Vista;
+using ClienteConsola.Controlador;
+using ClienteConsola.Modelo;
 
 namespace ClienteConsola
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var httpClient = new HttpClient
+            InterfazConsola interfaz = new InterfazConsola();
+            ControladorConversiones controlador = new ControladorConversiones();
+
+            Console.WriteLine("=== BIENVENIDO AL SISTEMA DE CONVERSIONES ===");
+            bool autenticado = false;
+
+            while (!autenticado)
             {
-                BaseAddress = new Uri("https://localhost:5001/")
-            };
-            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                string usuario = interfaz.pedirTexto("Ingresa tu usuario: ");
+                string clave = interfaz.pedirTexto("Ingresa tu clave: ");
 
-            var app = new AppControlador(httpClient);
-            app.Run();
-        }
-    }
-}
+                Console.WriteLine("[Autenticando...]");
+                autenticado = controlador.iniciarSesion(usuario, clave);
 
-namespace ClienteConsola.Controlador
-{
-    public class AppControlador
-    {
-        private readonly MenuVista _menuVista;
-        private readonly AutenticacionControlador _authControlador;
-        private readonly ConversionControlador _conversionControlador;
-        private bool _salir;
-
-        public AppControlador(HttpClient httpClient)
-        {
-            _menuVista = new MenuVista();
-            _authControlador = new AutenticacionControlador(new AutenticacionVista(), httpClient);
-            _conversionControlador = new ConversionControlador(new ConversionVista(), httpClient);
-        }
-
-        public void Run()
-        {
-            while (!_salir)
-            {
-                int opcion = _menuVista.MostrarMenuPrincipal(Modelo.SesionUsuario.EstaAutenticado);
-                ProcesarOpcion(opcion);
-
-                if (!_salir)
+                if (!autenticado)
                 {
-                    _menuVista.Pausa();
+                    Console.WriteLine("Credenciales incorrectas o error de red. Intenta nuevamente.\n");
                 }
+            }
+
+            Console.WriteLine("Sesion iniciada con exito\n");
+
+            OpcionMenu? opcion;
+            do
+            {
+                opcion = interfaz.seleccionarConversion();
+
+                if (opcion != null)
+                {
+                    switch (opcion)
+                    {
+                        case var _ when opcion == OpcionMenu.CONVERTIR_LONGITUD:
+                            ejecutarFlujoConversion(
+                                interfaz,
+                                Enum.GetValues<CatalogoUnidades.Longitud>(),
+                                (v, o, d) => controlador.convertirLongitud(v, o, d)
+                            );
+                            break;
+                        case var _ when opcion == OpcionMenu.CONVERTIR_TEMPERATURA:
+                            ejecutarFlujoConversion(
+                                interfaz,
+                                Enum.GetValues<CatalogoUnidades.Temperatura>(),
+                                (v, o, d) => controlador.convertirTemperatura(v, o, d)
+                            );
+                            break;
+                        case var _ when opcion == OpcionMenu.CONVERTIR_MASA:
+                            ejecutarFlujoConversion(
+                                interfaz,
+                                Enum.GetValues<CatalogoUnidades.Masa>(),
+                                (v, o, d) => controlador.convertirMasa(v, o, d)
+                            );
+                            break;
+                        case var _ when opcion == OpcionMenu.VALIDAR_NUMERICO:
+                            ejecutarValidacionNumerica(interfaz, controlador);
+                            break;
+                        case var _ when opcion == OpcionMenu.SALIR:
+                            Console.WriteLine("Saliendo...");
+                            break;
+                    }
+                }
+            } while (opcion != OpcionMenu.SALIR);
+        }
+
+        private delegate double OperacionREST(double valor, string origen, string destino);
+
+        private static void ejecutarFlujoConversion<T>(
+            InterfazConsola interfaz,
+            T[] valoresCatalogo,
+            OperacionREST operacion) where T : struct, Enum
+        {
+            T? origen = interfaz.seleccionarUnidad("Selecciona la unidad de ORIGEN", valoresCatalogo);
+            if (origen == null) return;
+
+            T? destino = interfaz.seleccionarUnidad("Selecciona la unidad de DESTINO", valoresCatalogo);
+            if (destino == null) return;
+
+            double? valor = interfaz.pedirValorAConvertir();
+            if (valor == null) return;
+
+            Console.WriteLine($"\n[Llamando Controlador...] Convirtiendo {valor} de {origen} a {destino}");
+
+            try
+            {
+                double result = operacion(valor.Value, origen.Value.ToString(), destino.Value.ToString());
+                Console.WriteLine("Resultado = " + result);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Error durante la conversion: " + ex.Message);
             }
         }
 
-        private void ProcesarOpcion(int opcion)
+        private static void ejecutarValidacionNumerica(InterfazConsola interfaz, ControladorConversiones controlador)
         {
-            if (Modelo.SesionUsuario.EstaAutenticado)
+            string valor = interfaz.pedirTexto("Ingrese el valor a validar: ");
+            try
             {
-                switch (opcion)
-                {
-                    case 1:
-                        _authControlador.CerrarSesion();
-                        break;
-                    case 2:
-                        _conversionControlador.ConvertirLongitud();
-                        break;
-                    case 3:
-                        _conversionControlador.ConvertirTemperatura();
-                        break;
-                    case 4:
-                        _conversionControlador.ConvertirMasa();
-                        break;
-                    case 5:
-                        _conversionControlador.ValidarCampoNumerico();
-                        break;
-                    case 6:
-                        _salir = true;
-                        _menuVista.MostrarMensaje("Saliendo de la aplicacion...");
-                        break;
-                    default:
-                        _menuVista.MostrarError("Opcion invalida.");
-                        break;
-                }
+                bool esValido = controlador.validarCampoNumerico(valor);
+                Console.WriteLine($"Es valido: {(esValido ? "Si" : "No")}");
             }
-            else
+            catch (Exception ex)
             {
-                switch (opcion)
-                {
-                    case 1:
-                        _authControlador.IniciarSesion();
-                        break;
-                    case 2:
-                        _salir = true;
-                        _menuVista.MostrarMensaje("Saliendo de la aplicacion...");
-                        break;
-                    default:
-                        _menuVista.MostrarError("Opcion invalida.");
-                        break;
-                }
+                Console.Error.WriteLine("Error durante la validacion: " + ex.Message);
             }
         }
     }

@@ -1,63 +1,64 @@
-// Set up event handlers
-const reconnectModal = document.getElementById("components-reconnect-modal");
-reconnectModal.addEventListener("components-reconnect-state-changed", handleReconnectStateChanged);
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("components-reconnect-modal");
+    if (!modal) return;
 
-const retryButton = document.getElementById("components-reconnect-button");
-retryButton.addEventListener("click", retry);
+    let reconnectInterval = null;
+    let secondsToNextAttempt = 0;
 
-const resumeButton = document.getElementById("components-resume-button");
-resumeButton.addEventListener("click", resume);
+    const secondsElement = document.getElementById("components-seconds-to-next-attempt");
+    const reconnectButton = document.getElementById("components-reconnect-button");
+    const resumeButton = document.getElementById("components-resume-button");
 
-function handleReconnectStateChanged(event) {
-    if (event.detail.state === "show") {
-        reconnectModal.showModal();
-    } else if (event.detail.state === "hide") {
-        reconnectModal.close();
-    } else if (event.detail.state === "failed") {
-        document.addEventListener("visibilitychange", retryWhenDocumentBecomesVisible);
-    } else if (event.detail.state === "rejected") {
-        location.reload();
-    }
-}
+    const show = (className) => {
+        document.querySelectorAll(`.${className}`).forEach(el => el.classList.add(className.replace("-visible", "") + "-visible"));
+    };
 
-async function retry() {
-    document.removeEventListener("visibilitychange", retryWhenDocumentBecomesVisible);
+    modal.addEventListener("blazor-reconnect-please-wait", () => {
+        modal.showModal();
+    });
 
-    try {
-        // Reconnect will asynchronously return:
-        // - true to mean success
-        // - false to mean we reached the server, but it rejected the connection (e.g., unknown circuit ID)
-        // - exception to mean we didn't reach the server (this can be sync or async)
-        const successful = await Blazor.reconnect();
-        if (!successful) {
-            // We have been able to reach the server, but the circuit is no longer available.
-            // We'll reload the page so the user can continue using the app as quickly as possible.
-            const resumeSuccessful = await Blazor.resumeCircuit();
-            if (!resumeSuccessful) {
-                location.reload();
-            } else {
-                reconnectModal.close();
+    modal.addEventListener("blazor-reconnect-please-wait", () => {
+        document.querySelector(".components-rejoining-animation").style.display = "block";
+        document.querySelector(".components-rejoin-first-attempt-visible").style.display = "block";
+    });
+
+    modal.addEventListener("blazor-reconnect-retry", () => {
+        if (reconnectInterval) clearInterval(reconnectInterval);
+        document.querySelector(".components-rejoin-first-attempt-visible").style.display = "none";
+        document.querySelector(".components-rejoin-repeated-attempt-visible").style.display = "block";
+        secondsToNextAttempt = 5;
+        if (secondsElement) secondsElement.textContent = secondsToNextAttempt.toString();
+        reconnectInterval = setInterval(() => {
+            secondsToNextAttempt--;
+            if (secondsElement) secondsElement.textContent = secondsToNextAttempt.toString();
+            if (secondsToNextAttempt <= 0) {
+                clearInterval(reconnectInterval);
+                reconnectInterval = null;
             }
-        }
-    } catch (err) {
-        // We got an exception, server is currently unavailable
-        document.addEventListener("visibilitychange", retryWhenDocumentBecomesVisible);
-    }
-}
+        }, 1000);
+    });
 
-async function resume() {
-    try {
-        const successful = await Blazor.resumeCircuit();
-        if (!successful) {
-            location.reload();
-        }
-    } catch {
-        reconnectModal.classList.replace("components-reconnect-paused", "components-reconnect-resume-failed");
-    }
-}
+    modal.addEventListener("blazor-reconnect-failed", () => {
+        if (reconnectInterval) clearInterval(reconnectInterval);
+        document.querySelector(".components-rejoin-repeated-attempt-visible").style.display = "none";
+        document.querySelector(".components-rejoin-failed-visible").style.display = "block";
+        if (reconnectButton) reconnectButton.style.display = "block";
+    });
 
-async function retryWhenDocumentBecomesVisible() {
-    if (document.visibilityState === "visible") {
-        await retry();
-    }
-}
+    modal.addEventListener("blazor-reconnect-pause", () => {
+        document.querySelector(".components-rejoin-failed-visible").style.display = "none";
+        if (reconnectButton) reconnectButton.style.display = "none";
+        document.querySelector(".components-pause-visible").style.display = "block";
+        if (resumeButton) resumeButton.style.display = "block";
+    });
+
+    reconnectButton?.addEventListener("click", () => {
+        modal.close();
+        window.location.reload();
+    });
+
+    resumeButton?.addEventListener("click", () => {
+        modal.close();
+        window.location.reload();
+    });
+});

@@ -1,23 +1,36 @@
 ﻿@inherits LayoutComponentBase
+@inject ClienteWeb.Modelo.ServicioSesion Sesion
+@inject ClienteWeb.Controlador.AuthControlador AuthControlador
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="app-layout">
+    <header class="top-bar">
+        @if (Sesion.EstaAutenticado)
+        {
+            <button class="btn btn-logout" @onclick="CerrarSesion">Cerrar Sesion</button>
+        }
+    </header>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+    <main class="main-content">
+        @Body
     </main>
 </div>
 
 <div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+    <span class="dismiss" @onclick="DismissError">x</span>
 </div>
+
+@code {
+    private void CerrarSesion()
+    {
+        AuthControlador.CerrarSesion();
+        Navigation.NavigateTo("/login", forceLoad: false);
+        StateHasChanged();
+    }
+
+    private async Task DismissError()
+    {
+        await JS.InvokeVoidAsync("eval", "document.getElementById('blazor-error-ui').style.display='none'");
+    }
+}

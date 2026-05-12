@@ -1,7 +1,7 @@
-using ClienteMovil.Controlador;
-using ClienteMovil.Modelo;
+using ClienteEscritorio.Controlador;
+using ClienteEscritorio.Modelo;
 
-namespace ClienteMovil.Vista
+namespace ClienteEscritorio.Vista
 {
     public partial class LoginPage : ContentPage
     {
@@ -54,6 +54,11 @@ namespace ClienteMovil.Vista
                 MensajeFrame.BackgroundColor = Color.FromArgb("#F8D7DA");
                 MensajeLabel.TextColor = Color.FromArgb("#721C24");
             }
+        }
+
+        private void OcultarMensaje()
+        {
+            MensajeFrame.IsVisible = false;
         }
     }
 }

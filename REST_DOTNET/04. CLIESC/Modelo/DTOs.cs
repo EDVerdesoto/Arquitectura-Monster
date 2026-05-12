@@ -1,4 +1,4 @@
-namespace ClienteMovil.Modelo
+namespace ClienteEscritorio.Modelo
 {
     public class LoginRequest
     {

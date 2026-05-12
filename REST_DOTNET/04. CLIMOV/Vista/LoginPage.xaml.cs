@@ -55,5 +55,10 @@ namespace ClienteMovil.Vista
                 MensajeLabel.TextColor = Color.FromArgb("#721C24");
             }
         }
+
+        private void OcultarMensaje()
+        {
+            MensajeFrame.IsVisible = false;
+        }
     }
 }

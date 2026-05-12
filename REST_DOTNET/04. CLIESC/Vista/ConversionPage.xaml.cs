@@ -1,7 +1,7 @@
-using ClienteMovil.Controlador;
-using ClienteMovil.Modelo;
+using ClienteEscritorio.Controlador;
+using ClienteEscritorio.Modelo;
 
-namespace ClienteMovil.Vista
+namespace ClienteEscritorio.Vista
 {
     public partial class ConversionPage : ContentPage
     {

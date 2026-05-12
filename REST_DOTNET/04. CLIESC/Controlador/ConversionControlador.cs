@@ -1,53 +1,58 @@
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using ClienteEscritorio.Modelo;
 
-namespace ClienteMovil.Controlador
+namespace ClienteEscritorio.Controlador
 {
     public class ConversionControlador
     {
-        private readonly Modelo.ServicioSesion _sesion;
+        private readonly ServicioSesion _sesion;
         private readonly HttpClient _httpClient;
 
-        public ConversionControlador(Modelo.ServicioSesion sesion, HttpClient httpClient)
+        public ConversionControlador(ServicioSesion sesion, HttpClient httpClient)
         {
             _sesion = sesion;
             _httpClient = httpClient;
         }
 
         public async Task<(bool exito, double valorConvertido, string mensaje)> ConvertirAsync(
-            Modelo.TipoConversion tipo, string unidadOrigen, string unidadDestino, double valor)
+            TipoConversion tipo, string unidadOrigen, string unidadDestino, double valor)
         {
             if (!_sesion.EstaAutenticado)
                 return (false, 0, "Debe iniciar sesion para realizar conversiones.");
 
             try
             {
-                var solicitud = new Modelo.ConversionRequest
+                var solicitud = new { Valor = valor, UnidadOrigen = unidadOrigen, UnidadDestino = unidadDestino };
+                var json = JsonSerializer.Serialize(solicitud);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var request = new HttpRequestMessage(HttpMethod.Post, $"api/conversion/{tipo.ToString().ToLower()}")
                 {
-                    Valor = valor,
-                    UnidadOrigen = unidadOrigen,
-                    UnidadDestino = unidadDestino
+                    Content = content
                 };
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _sesion.Token);
 
-                string endpoint = tipo switch
-                {
-                    Modelo.TipoConversion.Longitud => "api/conversion/longitud",
-                    Modelo.TipoConversion.Temperatura => "api/conversion/temperatura",
-                    Modelo.TipoConversion.Masa => "api/conversion/masa",
-                    _ => "api/conversion/longitud"
-                };
+                var response = await _httpClient.SendAsync(request);
+                var result = await response.Content.ReadFromJsonAsync<ConversionResponse>();
 
-                var response = await _httpClient.PostAsJsonAsync(endpoint, solicitud);
-                var resultado = await response.Content.ReadFromJsonAsync<Modelo.ConversionResponse>();
+                if (result != null && result.Exito)
+                    return (true, result.ValorConvertido, string.Empty);
 
-                if (resultado.Exito)
-                    return (true, resultado.ValorConvertido, string.Empty);
-
-                return (false, 0, resultado.MensajeError);
+                return (false, 0, result?.MensajeError ?? "Error desconocido");
             }
             catch (Exception ex)
             {
                 return (false, 0, $"Error de conexion: {ex.Message}");
             }
+        }
+
+        private class ConversionResponse
+        {
+            public bool Exito { get; set; }
+            public double ValorConvertido { get; set; }
+            public string MensajeError { get; set; } = string.Empty;
         }
     }
 }

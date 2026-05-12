@@ -1,6 +1,8 @@
-﻿using Foundation;
+using Foundation;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
 
-namespace ClienteMovil
+namespace ClienteEscritorio
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

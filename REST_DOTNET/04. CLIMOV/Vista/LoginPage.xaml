@@ -55,7 +55,6 @@
                         Clicked="OnLoginClicked"
                         Margin="0,0,0,10" />
 
-
             </VerticalStackLayout>
 
             <Image Grid.Column="1"

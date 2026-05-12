@@ -1,8 +1,8 @@
-﻿using ClienteMovil.Modelo;
-using ClienteMovil.Controlador;
-using ClienteMovil.Vista;
+using ClienteEscritorio.Modelo;
+using ClienteEscritorio.Controlador;
+using ClienteEscritorio.Vista;
 
-namespace ClienteMovil
+namespace ClienteEscritorio
 {
     public partial class AppShell : Shell
     {

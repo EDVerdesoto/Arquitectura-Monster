@@ -11,6 +11,8 @@ namespace ConversionesServerAPI.Controlador
         public ActionResult<LoginResponse> Login([FromBody] LoginRequest solicitud)
         {
             if (solicitud != null
+                && !string.IsNullOrEmpty(solicitud.Usuario)
+                && !string.IsNullOrEmpty(solicitud.Clave)
                 && AlmacenamientoAutenticacion.Usuarios.ContainsKey(solicitud.Usuario)
                 && AlmacenamientoAutenticacion.Usuarios[solicitud.Usuario] == solicitud.Clave)
             {

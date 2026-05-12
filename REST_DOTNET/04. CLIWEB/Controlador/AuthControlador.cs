@@ -1,14 +1,16 @@
-using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using ClienteWeb.Modelo;
 
 namespace ClienteWeb.Controlador
 {
     public class AuthControlador
     {
-        private readonly Modelo.ServicioSesion _sesion;
+        private readonly ServicioSesion _sesion;
         private readonly HttpClient _httpClient;
 
-        public AuthControlador(Modelo.ServicioSesion sesion, HttpClient httpClient)
+        public AuthControlador(ServicioSesion sesion, HttpClient httpClient)
         {
             _sesion = sesion;
             _httpClient = httpClient;
@@ -18,23 +20,20 @@ namespace ClienteWeb.Controlador
         {
             try
             {
-                var solicitud = new Modelo.LoginRequest
-                {
-                    Usuario = usuario,
-                    Clave = clave
-                };
+                var solicitud = new { Usuario = usuario, Clave = clave };
+                var json = JsonSerializer.Serialize(solicitud);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await _httpClient.PostAsJsonAsync("api/auth/login", solicitud);
-                var resultado = await response.Content.ReadFromJsonAsync<Modelo.LoginResponse>();
+                var response = await _httpClient.PostAsync("api/auth/login", content);
+                var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
 
-                if (resultado.Exito)
+                if (result != null && result.Exito)
                 {
-                    _sesion.SetToken(resultado.TokenGenerado);
-                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resultado.TokenGenerado);
+                    _sesion.SetToken(result.TokenGenerado);
                     return (true, "Sesion iniciada correctamente.");
                 }
 
-                return (false, resultado.MensajeError);
+                return (false, result?.MensajeError ?? "Error desconocido");
             }
             catch (Exception ex)
             {
@@ -45,7 +44,13 @@ namespace ClienteWeb.Controlador
         public void CerrarSesion()
         {
             _sesion.ClearToken();
-            _httpClient.DefaultRequestHeaders.Authorization = null;
+        }
+
+        private class LoginResponse
+        {
+            public bool Exito { get; set; }
+            public string TokenGenerado { get; set; } = string.Empty;
+            public string MensajeError { get; set; } = string.Empty;
         }
     }
 }

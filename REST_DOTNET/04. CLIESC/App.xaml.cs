@@ -1,4 +1,4 @@
-﻿namespace ClienteMovil
+namespace ClienteEscritorio
 {
     public partial class App : Application
     {

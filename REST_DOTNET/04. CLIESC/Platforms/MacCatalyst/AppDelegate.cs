@@ -1,10 +1,14 @@
-﻿using Foundation;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
 
-namespace ClienteMovil
+namespace ClienteEscritorio
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate
+    public class Program
     {
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+        static void Main(string[] args)
+        {
+            var app = new MauiProgram().CreateMauiApp();
+            app.Run(args);
+        }
     }
 }

@@ -7,12 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient<AuthControlador>(client =>
-    client.BaseAddress = new Uri("https://localhost:5001/"));
-builder.Services.AddHttpClient<ConversionControlador>(client =>
-    client.BaseAddress = new Uri("https://localhost:5001/"));
-
 builder.Services.AddScoped<ServicioSesion>();
+builder.Services.AddScoped<AuthControlador>();
+builder.Services.AddScoped<ConversionControlador>();
+builder.Services.AddHttpClient<AuthControlador>(client =>
+{
+    client.BaseAddress = new Uri("https://server_rest.dr00p3r.top/");
+});
+builder.Services.AddHttpClient<ConversionControlador>(client =>
+{
+    client.BaseAddress = new Uri("https://server_rest.dr00p3r.top/");
+});
 
 var app = builder.Build();
 
