@@ -1,11 +1,5 @@
 package ec.edu.monster.clienteconsola.vista;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
 import java.util.Scanner;
 
 /**
@@ -20,13 +14,13 @@ public class InterfazConsola {
     }
 
     public OpcionMenu seleccionarConversion() {
-        System.out.println("\n--- Menú de Conversión de Unidades ---");
+        System.out.println("\n--- Menu de Conversion de Unidades ---");
         
         for (OpcionMenu opcion : OpcionMenu.values()) {
             System.out.println(opcion.getNumero() + ". " + opcion.getDescripcion());
         }
         
-        System.out.print("Selecciona una opción: ");
+        System.out.print("Selecciona una opcion: ");
         String seleccion = entrada.nextLine();
         
         for (OpcionMenu opcion : OpcionMenu.values()) {
@@ -35,7 +29,7 @@ public class InterfazConsola {
             }
         }
         
-        System.out.println("Opción inválida. Intenta de nuevo.");
+        System.out.println("Opcion invalida. Intenta de nuevo.");
         return null;
     }
     
@@ -55,7 +49,7 @@ public class InterfazConsola {
             // Ignorar para que caiga en el error de abajo
         }
         
-        System.out.println("Unidad inválida. Operación cancelada.");
+        System.out.println("Unidad invalida. Operacion cancelada.");
         return null;
     }
     
@@ -64,7 +58,7 @@ public class InterfazConsola {
         try {
             return Double.valueOf(entrada.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("Debe ser un número válido.");
+            System.out.println("Debe ser un numero valido.");
             return null;
         }
     }

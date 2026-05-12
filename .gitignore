@@ -11,10 +11,19 @@ target/
 
 # IDE basura
 *.ser
+Workspace.sws
 
+# Visual Studio / .NET
 /SOAP_DOTNET/.vs
 /SOAP_DOTNET/04. CLICON/.vs
 /SOAP_DOTNET/04. CLIESC/.vs
 /SOAP_DOTNET/04. CLIMOV/.vs
 /SOAP_DOTNET/04. CLIWEB/.vs
 /SOAP_DOTNET/04. SERVIDOR/.vs
+
+# Android Studio / Gradle
+.gradle/
+.idea/
+build/
+app/build/
+local.properties
