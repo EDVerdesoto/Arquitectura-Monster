@@ -56,6 +56,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Platforms\Android\Resources\xml\network_security_config.xml" LogicalName="xml\network_security_config.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.*" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.10.*" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.*" />

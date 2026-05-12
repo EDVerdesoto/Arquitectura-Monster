@@ -53,7 +53,8 @@ namespace ClienteMovil.Controlador
             }
             catch (Exception ex)
             {
-                return (false, 0, $"Error de conexion: {ex.Message}");
+                var detalle = ex.InnerException != null ? $" | Detalle: {ex.InnerException.Message}" : "";
+                return (false, 0, $"Error de conexion: {ex.Message}{detalle}");
             }
         }
     }
