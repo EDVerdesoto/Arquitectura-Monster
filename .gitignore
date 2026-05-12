@@ -12,9 +12,14 @@ target/
 # IDE basura
 *.ser
 
-/SOAP_DOTNET/.vs
-/SOAP_DOTNET/04. CLICON/.vs
-/SOAP_DOTNET/04. CLIESC/.vs
-/SOAP_DOTNET/04. CLIMOV/.vs
-/SOAP_DOTNET/04. CLIWEB/.vs
-/SOAP_DOTNET/04. SERVIDOR/.vs
+# .NET Build outputs
+**/bin/
+**/obj/
+
+# Visual Studio
+**/.vs/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
