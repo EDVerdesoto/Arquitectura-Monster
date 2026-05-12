@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BPbMM+2xd9E=",
+  "success": true,
+  "projectFilePath": "C:\\MonsterProjects\\DOTNET\\RESTFul\\ClienteWeb\\ClienteWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joanc\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.5\\microsoft.aspnetcore.app.internal.assets.10.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

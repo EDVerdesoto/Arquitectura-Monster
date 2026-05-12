@@ -1,0 +1,122 @@
+@page "/conversion"
+@inject ClienteWeb.Modelo.ServicioSesion Sesion
+@inject ClienteWeb.Controlador.ConversionControlador ConversionControlador
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageTitle>Conversion de Unidades</PageTitle>
+
+<div class="container mt-4">
+    <h3>Conversion de Unidades</h3>
+    <hr />
+
+    @if (!Sesion.EstaAutenticado)
+    {
+        <div class="alert alert-warning" role="alert">
+            Debe <a href="/login">iniciar sesion</a> para usar el conversor.
+        </div>
+    }
+    else
+    {
+        @if (!string.IsNullOrEmpty(mensaje))
+        {
+            <div class="alert @(exito ? "alert-success" : "alert-danger")" role="alert">
+                @mensaje
+            </div>
+        }
+
+        <div class="mb-4">
+            <label for="tipoConversion" class="form-label">Tipo de Conversion</label>
+            <select class="form-select" id="tipoConversion" @bind="tipoSeleccionado">
+                <option value="@TipoConversion.Longitud">Longitud</option>
+                <option value="@TipoConversion.Temperatura">Temperatura</option>
+                <option value="@TipoConversion.Masa">Masa</option>
+            </select>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header text-center fw-bold">Origen</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Unidad de Origen</label>
+                            <select class="form-select" @bind="unidadOrigen">
+                                @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
+                                {
+                                    <option value="@unidad">@unidad</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input type="number" class="form-control" @bind="valorOrigen" step="any" placeholder="Ingrese el valor" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 text-center">
+                <img src="Media/flecha40px.png" alt="Flecha" class="img-fluid my-3" />
+            </div>
+
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header text-center fw-bold">Destino</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Unidad de Destino</label>
+                            <select class="form-select" @bind="unidadDestino">
+                                @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
+                                {
+                                    <option value="@unidad">@unidad</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Resultado</label>
+                            <input type="number" class="form-control" @bind="valorDestino" readonly step="any" placeholder="Resultado" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col text-center">
+                <button class="btn btn-primary btn-lg px-5" @onclick="Convertir">Convertir</button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private TipoConversion tipoSeleccionado = TipoConversion.Longitud;
+    private string unidadOrigen = string.Empty;
+    private string unidadDestino = string.Empty;
+    private double valorOrigen;
+    private double valorDestino;
+    private string mensaje = string.Empty;
+    private bool exito = false;
+
+    protected override void OnInitialized()
+    {
+        ActualizarUnidadesPorDefecto();
+    }
+
+    private void ActualizarUnidadesPorDefecto()
+    {
+        var unidades = UnidadesConversion.Unidades[tipoSeleccionado];
+        unidadOrigen = unidades[0];
+        unidadDestino = unidades.Count > 1 ? unidades[1] : unidades[0];
+    }
+
+    private async Task Convertir()
+    {
+        mensaje = string.Empty;
+        var resultado = await ConversionControlador.ConvertirAsync(tipoSeleccionado, unidadOrigen, unidadDestino, valorOrigen);
+        exito = resultado.exito;
+        mensaje = resultado.mensaje;
+        valorDestino = resultado.valorConvertido;
+    }
+}

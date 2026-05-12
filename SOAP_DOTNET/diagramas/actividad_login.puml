@@ -1,0 +1,59 @@
+@startuml DiagramaActividadLogin
+
+|Usuario|
+start
+:Abrir aplicacion;
+
+|Vista|
+:Mostrar pantalla Login;
+
+|Usuario|
+:Ingresar usuario y clave;
+:Presionar "Iniciar Sesion";
+
+|Vista|
+:Capturar datos de entrada;
+:Invocar AuthControlador.IniciarSesionAsync(usuario, clave);
+
+|AuthControlador|
+:Crear SolicitudCredenciales;
+:Invocar ServicioAutenticacionClient.ValidarCredencialesAsync(solicitud);
+
+|Proxy WCF Auth|
+:Serializar solicitud SOAP;
+:Enviar HTTP POST a ServicioAutenticacion.svc;
+
+|ServicioAutenticacion (WCF)|
+:Recibir ValidarCredenciales;
+:Consultar AlmacenamientoAutenticacion.Usuarios;
+
+if (Credenciales validas?) then (si)
+  :Generar Guid.NewGuid();
+  :Almacenar token en TokensActivos;
+  :Retornar RespuestaCredenciales(Exito=true, TokenGenerado);
+else (no)
+  :Retornar RespuestaCredenciales(Exito=false, MensajeError);
+endif
+
+|Proxy WCF Auth|
+:Deserializar respuesta SOAP;
+:Entregar resultado a AuthControlador;
+
+|AuthControlador|
+if (resultado.Exito?) then (si)
+  :ServicioSesion.SetToken(token);
+  :Retornar (true, "Sesion iniciada");
+else (no)
+  :Retornar (false, resultado.MensajeError);
+endif
+
+|Vista|
+if (exito?) then (si)
+  :Mostrar mensaje exito;
+  :Navegar a pantalla Conversion;
+else (no)
+  :Mostrar mensaje de error;
+  detach
+endif
+
+@enduml

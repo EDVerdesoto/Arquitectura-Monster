@@ -1,0 +1,63 @@
+@startuml DiagramaSecuenciaLogin
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+title Diagrama de Secuencia - Login (SOAP .NET)
+
+actor Usuario
+participant "Vista\n(Login.razor)" as Vista
+participant "AuthControlador" as AuthCtrl
+participant "ServicioSesion" as Sesion
+participant "ServicioAutenticacionClient\n(Proxy WCF)" as ProxyAuth
+participant "ServicioAutenticacion\n(WCF Server)" as SvcAuth
+participant "Almacenamiento\nAutenticacion" as AlmAuth
+
+Usuario -> Vista : introduce usuario y clave
+Usuario -> Vista : presiona "Iniciar Sesion"
+Vista -> AuthCtrl : IniciarSesionAsync(usuario, clave)
+activate AuthCtrl
+
+AuthCtrl -> AuthCtrl : crear SolicitudCredenciales
+AuthCtrl -> ProxyAuth : ValidarCredencialesAsync(solicitud)
+activate ProxyAuth
+
+ProxyAuth -> SvcAuth : SOAP Request (ValidarCredenciales)
+activate SvcAuth
+
+SvcAuth -> AlmAuth : consultar Usuarios[usuario]
+activate AlmAuth
+AlmAuth --> SvcAuth : clave almacenada
+deactivate AlmAuth
+
+alt Credenciales validas
+    SvcAuth -> AlmAuth : TokensActivos.Add(Guid.NewGuid())
+    activate AlmAuth
+    AlmAuth --> SvcAuth : token guardado
+    deactivate AlmAuth
+    SvcAuth --> ProxyAuth : RespuestaCredenciales(Exito=true, TokenGenerado)
+else Credenciales invalidas
+    SvcAuth --> ProxyAuth : RespuestaCredenciales(Exito=false, MensajeError)
+end
+
+deactivate SvcAuth
+
+ProxyAuth --> AuthCtrl : resultado
+deactivate ProxyAuth
+
+alt Autenticacion exitosa
+    AuthCtrl -> Sesion : SetToken(token)
+    activate Sesion
+    Sesion --> AuthCtrl : token almacenado
+    deactivate Sesion
+    AuthCtrl --> Vista : (true, "Sesion iniciada correctamente.")
+    Vista -> Vista : Navigation.NavigateTo("/conversion")
+    Vista --> Usuario : muestra pantalla de conversion
+else Autenticacion fallida
+    AuthCtrl --> Vista : (false, mensajeError)
+    Vista --> Usuario : muestra mensaje de error
+end
+
+deactivate AuthCtrl
+
+@enduml

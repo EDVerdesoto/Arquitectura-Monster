@@ -8,10 +8,6 @@ namespace ConversionesServerWCF.Modelo
         [OperationContract]
         RespuestaCredenciales ValidarCredenciales(SolicitudCredenciales solicitud);
 
-        [OperationContract]
-        RespuestaBase CambiarContrasena(SolicitudCambioClave solicitud);
 
-        [OperationContract]
-        RespuestaRecuperarClave RecuperarContrasena(SolicitudRecuperarClave solicitud);
     }
 }

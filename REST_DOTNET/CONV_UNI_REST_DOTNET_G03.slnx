@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="04. CLICON/CLICON.csproj" />
+  <Project Path="04. CLIESC/CLIESC.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="04. CLIMOV/CLIMOV.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="04. CLIWEB/CLIWEB.csproj" />
+  <Project Path="04. SERVIDOR/SERVIDOR.csproj" />
+</Solution>

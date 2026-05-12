@@ -39,28 +39,6 @@ namespace ClienteMovil.Vista
             }
         }
 
-        private void OnToggleRecuperarClicked(object? sender, EventArgs e)
-        {
-            RecuperarFrame.IsVisible = !RecuperarFrame.IsVisible;
-            OcultarMensaje();
-        }
-
-        private async void OnRecuperarClicked(object? sender, EventArgs e)
-        {
-            RecuperarButton.IsEnabled = false;
-
-            try
-            {
-                string usuario = UsuarioRecuperarEntry.Text ?? string.Empty;
-                var (exito, mensaje) = await _authControlador.RecuperarContrasenaAsync(usuario);
-                MostrarMensaje(mensaje, exito);
-            }
-            finally
-            {
-                RecuperarButton.IsEnabled = true;
-            }
-        }
-
         private void MostrarMensaje(string mensaje, bool exito)
         {
             MensajeFrame.IsVisible = true;

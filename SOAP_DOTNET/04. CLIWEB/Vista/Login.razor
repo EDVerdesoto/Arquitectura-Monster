@@ -29,20 +29,7 @@
             </div>
             <div class="d-grid gap-2">
                 <button class="btn btn-primary" @onclick="IniciarSesion">Iniciar Sesion</button>
-                <button class="btn btn-link" @onclick="ToggleRecuperar">Recuperar Contrasena</button>
             </div>
-
-            @if (mostrarRecuperar)
-            {
-                <div class="mt-4 p-3 border rounded bg-light">
-                    <h5>Recuperar Contrasena</h5>
-                    <div class="mb-3">
-                        <label for="usuarioRecuperar" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="usuarioRecuperar" @bind="usuarioRecuperar" placeholder="Ingrese su usuario" />
-                    </div>
-                    <button class="btn btn-secondary" @onclick="RecuperarContrasena">Recuperar</button>
-                </div>
-            }
         </div>
         <div class="col-md-7 text-center">
             <img src="Media/monsterlogin.jpg" alt="Monster Login" class="img-fluid rounded" style="max-height: 500px;" />
@@ -53,10 +40,8 @@
 @code {
     private string usuario = string.Empty;
     private string clave = string.Empty;
-    private string usuarioRecuperar = string.Empty;
     private string mensaje = string.Empty;
     private bool exito = false;
-    private bool mostrarRecuperar = false;
 
     private async Task IniciarSesion()
     {
@@ -71,17 +56,5 @@
         }
     }
 
-    private void ToggleRecuperar()
-    {
-        mostrarRecuperar = !mostrarRecuperar;
-        mensaje = string.Empty;
-    }
 
-    private async Task RecuperarContrasena()
-    {
-        mensaje = string.Empty;
-        var resultado = await AuthControlador.RecuperarContrasenaAsync(usuarioRecuperar);
-        exito = resultado.exito;
-        mensaje = resultado.mensaje;
-    }
 }

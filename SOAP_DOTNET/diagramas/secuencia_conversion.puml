@@ -1,0 +1,75 @@
+@startuml DiagramaSecuenciaConversion
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+title Diagrama de Secuencia - Conversion de Unidades (SOAP .NET)
+
+actor Usuario
+participant "Vista\n(Conversion.razor)" as Vista
+participant "ConversionControlador" as ConvCtrl
+participant "ServicioSesion" as Sesion
+participant "ServicioConversionClient\n(Proxy WCF)" as ProxyConv
+participant "ServicioConversion\n(WCF Server)" as SvcConv
+participant "Almacenamiento\nAutenticacion" as AlmAuth
+
+Usuario -> Vista : selecciona tipo, origen, destino y valor
+Usuario -> Vista : presiona "Convertir"
+
+Vista -> ConvCtrl : ConvertirAsync(tipo, unidadOrigen, unidadDestino, valorOrigen)
+activate ConvCtrl
+
+ConvCtrl -> Sesion : obtener Token
+activate Sesion
+Sesion --> ConvCtrl : token
+deactivate Sesion
+
+alt No autenticado
+    ConvCtrl --> Vista : (false, 0, "Debe iniciar sesion...")
+    Vista --> Usuario : muestra alerta de autenticacion
+else Autenticado
+    ConvCtrl -> ConvCtrl : crear SolicitudConversion(Token, Valor, Origen, Destino)
+
+    alt Tipo = Longitud
+        ConvCtrl -> ProxyConv : ConvertirLongitudAsync(solicitud)
+    else Tipo = Temperatura
+        ConvCtrl -> ProxyConv : ConvertirTemperaturaAsync(solicitud)
+    else Tipo = Masa
+        ConvCtrl -> ProxyConv : ConvertirMasaAsync(solicitud)
+    end
+
+    activate ProxyConv
+    ProxyConv -> SvcConv : SOAP Request (ConvertirXxx)
+    activate SvcConv
+
+    SvcConv -> AlmAuth : ValidarToken(token)
+    activate AlmAuth
+    AlmAuth --> SvcConv : true / false
+    deactivate AlmAuth
+
+    alt Token valido
+        SvcConv -> SvcConv : convertir origen -> unidad base
+        SvcConv -> SvcConv : convertir base -> destino
+        SvcConv --> ProxyConv : RespuestaConversion(Exito=true, ValorConvertido)
+    else Token invalido
+        SvcConv --> ProxyConv : RespuestaConversion(Exito=false, "Token no autorizado")
+    end
+
+    deactivate SvcConv
+
+    ProxyConv --> ConvCtrl : resultado
+    deactivate ProxyConv
+
+    alt Conversion exitosa
+        ConvCtrl --> Vista : (true, ValorConvertido, "")
+        Vista -> Vista : actualizar valorDestino
+        Vista --> Usuario : muestra resultado convertido
+    else Conversion fallida
+        ConvCtrl --> Vista : (false, 0, MensajeError)
+        Vista --> Usuario : muestra mensaje de error
+    end
+end
+
+deactivate ConvCtrl
+
+@enduml

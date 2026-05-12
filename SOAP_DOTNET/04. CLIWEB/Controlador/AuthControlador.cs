@@ -41,28 +41,6 @@ namespace ClienteWeb.Controlador
             }
         }
 
-        public async Task<(bool exito, string mensaje)> RecuperarContrasenaAsync(string usuario)
-        {
-            // Placeholder: UI shows this as "proximamente disponible"
-            // Uncomment below to enable real WCF call:
-            /*
-            try
-            {
-                var solicitud = new SolicitudRecuperarClave { Usuario = usuario };
-                var request = new RecuperarContrasenaRequest(solicitud);
-                var response = await _cliente.RecuperarContrasenaAsync(request);
-                var resultado = response.RecuperarContrasenaResult;
-                return (resultado.Exito, resultado.Exito ? $"Clave recuperada: {resultado.ClaveRecuperada}" : resultado.MensajeError);
-            }
-            catch (Exception ex)
-            {
-                return (false, $"Error de conexion: {ex.Message}");
-            }
-            */
-            await Task.Delay(1);
-            return (false, "Funcion proximamente disponible.");
-        }
-
         public void CerrarSesion()
         {
             _sesion.ClearToken();

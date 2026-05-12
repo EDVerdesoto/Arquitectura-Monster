@@ -1,0 +1,7 @@
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\bin\ConversionesServerWCF.dll.config
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\bin\ConversionesServerWCF.dll
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\bin\ConversionesServerWCF.pdb
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\obj\Debug\SERVIDOR.csproj.AssemblyReference.cache
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\obj\Debug\SERVIDOR.csproj.CoreCompileInputs.cache
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\obj\Debug\ConversionesServerWCF.dll
+C:\MonsterProjects\Arquitectura-Monster\SOAP_DOTNET\04. SERVIDOR\obj\Debug\ConversionesServerWCF.pdb

@@ -37,33 +37,6 @@ namespace ConversionesServerWCF.Modelo
     }
 
     [DataContract]
-    public class SolicitudCambioClave : SolicitudBase
-    {
-        [DataMember]
-        public string Usuario { get; set; }
-
-        [DataMember]
-        public string ClaveAntigua { get; set; }
-
-        [DataMember]
-        public string ClaveNueva { get; set; }
-    }
-
-    [DataContract]
-    public class SolicitudRecuperarClave : SolicitudBase
-    {
-        [DataMember]
-        public string Usuario { get; set; }
-    }
-
-    [DataContract]
-    public class RespuestaRecuperarClave : RespuestaBase
-    {
-        [DataMember]
-        public string ClaveRecuperada { get; set; }
-    }
-
-    [DataContract]
     public class SolicitudConversion : SolicitudBase
     {
         [DataMember]

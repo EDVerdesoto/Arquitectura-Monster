@@ -1,0 +1,66 @@
+@startuml DiagramaActividadConversion
+
+|Usuario|
+start
+:Seleccionar tipo de conversion;
+:Seleccionar unidad origen;
+:Seleccionar unidad destino;
+:Ingresar valor numerico;
+:Presionar "Convertir";
+
+|Vista|
+:Capturar parametros de conversion;
+:Invocar ConversionControlador.ConvertirAsync(tipo, origen, destino, valor);
+
+|ConversionControlador|
+:Verificar ServicioSesion.EstaAutenticado;
+if (Autenticado?) then (si)
+  :Crear SolicitudConversion(Token, Valor, UnidadOrigen, UnidadDestino);
+  :Invocar metodo async del proxy segun tipo;
+else (no)
+  :Retornar (false, 0, "Debe iniciar sesion");
+  |Vista|
+  :Mostrar alerta de autenticacion requerida;
+  detach
+endif
+
+|Proxy WCF Conversion|
+:Serializar solicitud SOAP;
+:Enviar HTTP POST a ServicioConversion.svc;
+
+|ServicioConversion (WCF)|
+:Recibir solicitud (ConvertirLongitud/Temperatura/Masa);
+:Invocar AlmacenamientoAutenticacion.ValidarToken(token);
+
+if (Token valido?) then (si)
+  :Convertir unidad origen a unidad base;
+  :Convertir unidad base a unidad destino;
+  :Retornar RespuestaConversion(Exito=true, ValorConvertido);
+else (no)
+  :Retornar RespuestaConversion(Exito=false, "Token no autorizado");
+endif
+
+|Proxy WCF Conversion|
+:Deserializar respuesta SOAP;
+:Entregar resultado a ConversionControlador;
+
+|ConversionControlador|
+if (resultado.Exito?) then (si)
+  :Retornar (true, ValorConvertido, "");
+else (no)
+  :Retornar (false, 0, MensajeError);
+endif
+
+|Vista|
+:Actualizar valorDestino;
+if (exito?) then (si)
+  :Mostrar resultado convertido;
+else (no)
+  :Mostrar mensaje de error;
+endif
+
+|Usuario|
+:Ver resultado en pantalla;
+stop
+
+@enduml

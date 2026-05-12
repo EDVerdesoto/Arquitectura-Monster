@@ -42,21 +42,18 @@ namespace ClienteConsola
                         _authControlador.CerrarSesion();
                         break;
                     case 2:
-                        _authControlador.CambiarContrasena();
-                        break;
-                    case 3:
                         _conversionControlador.ConvertirLongitud();
                         break;
-                    case 4:
+                    case 3:
                         _conversionControlador.ConvertirTemperatura();
                         break;
-                    case 5:
+                    case 4:
                         _conversionControlador.ConvertirMasa();
                         break;
-                    case 6:
+                    case 5:
                         _conversionControlador.ValidarCampoNumerico();
                         break;
-                    case 7:
+                    case 6:
                         _salir = true;
                         _menuVista.MostrarMensaje("Saliendo de la aplicacion...");
                         break;
@@ -73,9 +70,6 @@ namespace ClienteConsola
                         _authControlador.IniciarSesion();
                         break;
                     case 2:
-                        _authControlador.RecuperarContrasena();
-                        break;
-                    case 3:
                         _salir = true;
                         _menuVista.MostrarMensaje("Saliendo de la aplicacion...");
                         break;

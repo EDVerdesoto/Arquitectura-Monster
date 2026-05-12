@@ -39,12 +39,6 @@ namespace ClienteMovil.Controlador
             }
         }
 
-        public async Task<(bool exito, string mensaje)> RecuperarContrasenaAsync(string usuario)
-        {
-            await Task.Delay(1);
-            return (false, "Funcion proximamente disponible.");
-        }
-
         public void CerrarSesion()
         {
             _sesion.ClearToken();

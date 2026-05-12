@@ -46,55 +46,6 @@ namespace ClienteConsola.Controlador
             }
         }
 
-        public void CambiarContrasena()
-        {
-            if (!SesionUsuario.EstaAutenticado)
-            {
-                Console.WriteLine("Debe iniciar sesion para cambiar la contrasena.");
-                return;
-            }
-
-            var (usuario, claveAntigua, claveNueva) = _vista.SolicitarCambioClave();
-
-            try
-            {
-                var solicitud = new SolicitudCambioClave
-                {
-                    Token = SesionUsuario.Token,
-                    Usuario = usuario,
-                    ClaveAntigua = claveAntigua,
-                    ClaveNueva = claveNueva
-                };
-
-                var respuesta = _cliente.CambiarContrasenaAsync(solicitud).GetAwaiter().GetResult();
-                _vista.MostrarResultadoCambioClave(respuesta.Exito, respuesta.MensajeError);
-            }
-            catch (Exception ex)
-            {
-                _vista.MostrarResultadoCambioClave(false, ex.Message);
-            }
-        }
-
-        public void RecuperarContrasena()
-        {
-            string usuario = _vista.SolicitarRecuperarClave();
-
-            try
-            {
-                var solicitud = new SolicitudRecuperarClave
-                {
-                    Usuario = usuario
-                };
-
-                var respuesta = _cliente.RecuperarContrasenaAsync(solicitud).GetAwaiter().GetResult();
-                _vista.MostrarResultadoRecuperarClave(respuesta.Exito, respuesta.ClaveRecuperada, respuesta.MensajeError);
-            }
-            catch (Exception ex)
-            {
-                _vista.MostrarResultadoRecuperarClave(false, string.Empty, ex.Message);
-            }
-        }
-
         public void CerrarSesion()
         {
             SesionUsuario.Token = null;
