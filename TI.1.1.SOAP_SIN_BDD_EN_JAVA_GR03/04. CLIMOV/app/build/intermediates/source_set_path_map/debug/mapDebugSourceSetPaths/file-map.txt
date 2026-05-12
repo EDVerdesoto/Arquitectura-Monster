@@ -1,0 +1,35 @@
+ec.edu.monster.conuniclientemovil.app-cardview-1.0.0-0 C:\Users\Soto\.gradle\caches\8.11.1\transforms\096d7e3cbe47a8f2690a551f3b64553f\transformed\cardview-1.0.0\res
+ec.edu.monster.conuniclientemovil.app-emoji2-1.3.0-1 C:\Users\Soto\.gradle\caches\8.11.1\transforms\0c1aeb994008cbfae5a8ccf9c98955c4\transformed\emoji2-1.3.0\res
+ec.edu.monster.conuniclientemovil.app-viewpager2-1.0.0-2 C:\Users\Soto\.gradle\caches\8.11.1\transforms\12871e19d2a12f5638eaf072c6dc18f0\transformed\viewpager2-1.0.0\res
+ec.edu.monster.conuniclientemovil.app-appcompat-resources-1.7.1-3 C:\Users\Soto\.gradle\caches\8.11.1\transforms\1d06017a922102ff912a5a3f6772f36c\transformed\appcompat-resources-1.7.1\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-livedata-core-2.6.2-4 C:\Users\Soto\.gradle\caches\8.11.1\transforms\26a3eeb45edd87047d10732e54a748c1\transformed\lifecycle-livedata-core-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-activity-1.10.1-5 C:\Users\Soto\.gradle\caches\8.11.1\transforms\519b8f80ac475aae5948737cfd838fd7\transformed\activity-1.10.1\res
+ec.edu.monster.conuniclientemovil.app-material-1.12.0-6 C:\Users\Soto\.gradle\caches\8.11.1\transforms\5346368ba0858c994c68e1e9eab8be3a\transformed\material-1.12.0\res
+ec.edu.monster.conuniclientemovil.app-recyclerview-1.1.0-7 C:\Users\Soto\.gradle\caches\8.11.1\transforms\5cd2f4a4ecd6bed59f1736f85e7b22de\transformed\recyclerview-1.1.0\res
+ec.edu.monster.conuniclientemovil.app-core-ktx-1.13.0-8 C:\Users\Soto\.gradle\caches\8.11.1\transforms\61eb88aeac3e4390d0febf75b54a94f5\transformed\core-ktx-1.13.0\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-runtime-2.6.2-9 C:\Users\Soto\.gradle\caches\8.11.1\transforms\6e89857db5309817dfc9ef9ba2f9b99f\transformed\lifecycle-runtime-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-viewmodel-savedstate-2.6.2-10 C:\Users\Soto\.gradle\caches\8.11.1\transforms\7885378b3aea11cc3e507d4bfc1af78a\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-core-1.13.0-11 C:\Users\Soto\.gradle\caches\8.11.1\transforms\82c6058893cad35823606e7e77febed9\transformed\core-1.13.0\res
+ec.edu.monster.conuniclientemovil.app-appcompat-1.7.1-12 C:\Users\Soto\.gradle\caches\8.11.1\transforms\8309348fcecf5058eb2d105de63bcaaa\transformed\appcompat-1.7.1\res
+ec.edu.monster.conuniclientemovil.app-annotation-experimental-1.4.0-13 C:\Users\Soto\.gradle\caches\8.11.1\transforms\8497e6c794d046f25dfb32aeeabf8af6\transformed\annotation-experimental-1.4.0\res
+ec.edu.monster.conuniclientemovil.app-profileinstaller-1.4.0-14 C:\Users\Soto\.gradle\caches\8.11.1\transforms\85198b94c0342d4b7c9cf59dae1e7c99\transformed\profileinstaller-1.4.0\res
+ec.edu.monster.conuniclientemovil.app-emoji2-views-helper-1.3.0-15 C:\Users\Soto\.gradle\caches\8.11.1\transforms\9eac264063611739a5059be252a27824\transformed\emoji2-views-helper-1.3.0\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-livedata-2.6.2-16 C:\Users\Soto\.gradle\caches\8.11.1\transforms\a24999c4549c84995d42435f18e1ca5d\transformed\lifecycle-livedata-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-coordinatorlayout-1.1.0-17 C:\Users\Soto\.gradle\caches\8.11.1\transforms\a5b36c391de952b2735550f88b40d823\transformed\coordinatorlayout-1.1.0\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-viewmodel-2.6.2-18 C:\Users\Soto\.gradle\caches\8.11.1\transforms\b83b0f82824faca68ec9bd94d2d2ba64\transformed\lifecycle-viewmodel-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-core-viewtree-1.0.0-19 C:\Users\Soto\.gradle\caches\8.11.1\transforms\b9096d2970d40e464ea000bb450e5f78\transformed\core-viewtree-1.0.0\res
+ec.edu.monster.conuniclientemovil.app-lifecycle-process-2.6.2-20 C:\Users\Soto\.gradle\caches\8.11.1\transforms\bb43cdfe8feaf6508155e9b587c8f5a7\transformed\lifecycle-process-2.6.2\res
+ec.edu.monster.conuniclientemovil.app-savedstate-1.2.1-21 C:\Users\Soto\.gradle\caches\8.11.1\transforms\d1a3663f4aaf018e5d0e669966b5257d\transformed\savedstate-1.2.1\res
+ec.edu.monster.conuniclientemovil.app-transition-1.5.0-22 C:\Users\Soto\.gradle\caches\8.11.1\transforms\d9caab889ad92cc73b78f480eb9d1e90\transformed\transition-1.5.0\res
+ec.edu.monster.conuniclientemovil.app-startup-runtime-1.1.1-23 C:\Users\Soto\.gradle\caches\8.11.1\transforms\deb9659967138756d5d93a1157a51b37\transformed\startup-runtime-1.1.1\res
+ec.edu.monster.conuniclientemovil.app-drawerlayout-1.1.1-24 C:\Users\Soto\.gradle\caches\8.11.1\transforms\dfa7428d049f087768c64f57ac46d548\transformed\drawerlayout-1.1.1\res
+ec.edu.monster.conuniclientemovil.app-core-runtime-2.2.0-25 C:\Users\Soto\.gradle\caches\8.11.1\transforms\e8b9b6ef70ef0346fcaa12ea8ffa48f9\transformed\core-runtime-2.2.0\res
+ec.edu.monster.conuniclientemovil.app-fragment-1.5.4-26 C:\Users\Soto\.gradle\caches\8.11.1\transforms\e8ca77db915e683164dc036c12035fc9\transformed\fragment-1.5.4\res
+ec.edu.monster.conuniclientemovil.app-constraintlayout-2.2.1-27 C:\Users\Soto\.gradle\caches\8.11.1\transforms\fe2c29eea7bc4b952cdc149c7a3e32ea\transformed\constraintlayout-2.2.1\res
+ec.edu.monster.conuniclientemovil.app-pngs-28 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\build\generated\res\pngs\debug
+ec.edu.monster.conuniclientemovil.app-resValues-29 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\build\generated\res\resValues\debug
+ec.edu.monster.conuniclientemovil.app-packageDebugResources-30 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+ec.edu.monster.conuniclientemovil.app-packageDebugResources-31 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+ec.edu.monster.conuniclientemovil.app-debug-32 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\build\intermediates\merged_res\debug\mergeDebugResources
+ec.edu.monster.conuniclientemovil.app-debug-33 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\src\debug\res
+ec.edu.monster.conuniclientemovil.app-main-34 C:\Users\Soto\Desktop\Octavo\Arquitectura\Proyectos\Conversión de unidades\SOAP_EN_JAVA\04. CLIMOV\app\src\main\res
