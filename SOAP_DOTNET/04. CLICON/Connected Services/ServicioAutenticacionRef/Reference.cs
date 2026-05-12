@@ -14,7 +14,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudCambioClave))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudRecuperarClave))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.SolicitudCredenciales))]
@@ -39,7 +39,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudCambioClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudCambioClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class SolicitudCambioClave : ServicioAutenticacionRef.SolicitudBase
     {
         
@@ -91,7 +91,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class SolicitudRecuperarClave : ServicioAutenticacionRef.SolicitudBase
     {
         
@@ -113,7 +113,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudCredenciales", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudCredenciales", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class SolicitudCredenciales : ServicioAutenticacionRef.SolicitudBase
     {
         
@@ -150,7 +150,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.RespuestaRecuperarClave))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServicioAutenticacionRef.RespuestaCredenciales))]
     public partial class RespuestaBase : object
@@ -189,7 +189,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaRecuperarClave", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class RespuestaRecuperarClave : ServicioAutenticacionRef.RespuestaBase
     {
         
@@ -211,7 +211,7 @@ namespace ServicioAutenticacionRef
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaCredenciales", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaCredenciales", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class RespuestaCredenciales : ServicioAutenticacionRef.RespuestaBase
     {
         

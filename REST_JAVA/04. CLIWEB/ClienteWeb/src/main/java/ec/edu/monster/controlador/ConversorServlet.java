@@ -40,7 +40,7 @@
                                     valor, origen, destino, token);
 
         HttpRequest restRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/WS_CONV_UNI_RESTFULL_JAVA/conversor/" + tipo))
+                .uri(URI.create("http://localhost:8081/WS_CONV_UNI_RESTFULL_JAVA/conversor/" + tipo))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();

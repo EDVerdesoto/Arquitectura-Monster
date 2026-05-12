@@ -6,33 +6,33 @@
 
 <PageTitle>Iniciar Sesion</PageTitle>
 
-<div class="container mt-5">
-    <div class="row align-items-center">
-        <div class="col-md-5">
-            <h3>Iniciar Sesion</h3>
-            <hr />
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-form">
+            <div class="login-title">Ingrese sus credenciales:</div>
 
             @if (!string.IsNullOrEmpty(mensaje))
             {
-                <div class="alert @(exito ? "alert-success" : "alert-danger")" role="alert">
+                <div class="mensaje-frame @(exito ? "mensaje-exito" : "mensaje-error")">
                     @mensaje
                 </div>
             }
 
-            <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" @bind="usuario" placeholder="Ingrese su usuario" />
+            <div class="field-group">
+                <label for="usuario" class="field-label">Usuario</label>
+                <input type="text" class="field-input" id="usuario" @bind="usuario" placeholder="Ingrese su usuario" />
             </div>
-            <div class="mb-3">
-                <label for="clave" class="form-label">Contrasena</label>
-                <input type="password" class="form-control" id="clave" @bind="clave" placeholder="Ingrese su contrasena" />
+
+            <div class="field-group">
+                <label for="clave" class="field-label">Contrasena</label>
+                <input type="password" class="field-input" id="clave" @bind="clave" placeholder="Ingrese su contrasena" />
             </div>
-            <div class="d-grid gap-2">
-                <button class="btn btn-primary" @onclick="IniciarSesion">Iniciar Sesion</button>
-            </div>
+
+            <button class="btn-login" @onclick="IniciarSesion">INICIAR SESION</button>
         </div>
-        <div class="col-md-7 text-center">
-            <img src="Media/monsterlogin.jpg" alt="Monster Login" class="img-fluid rounded" style="max-height: 500px;" />
+
+        <div class="login-image">
+            <img src="Media/monsterlogin.jpg" alt="Monster Login" />
         </div>
     </div>
 </div>
@@ -55,6 +55,4 @@
             Navigation.NavigateTo("/conversion");
         }
     }
-
-
 }

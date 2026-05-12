@@ -6,13 +6,11 @@
 
 <PageTitle>Conversion de Unidades</PageTitle>
 
-<div class="container mt-4">
-    <h3>Conversion de Unidades</h3>
-    <hr />
+<div class="conversion-page">
 
     @if (!Sesion.EstaAutenticado)
     {
-        <div class="alert alert-warning" role="alert">
+        <div class="warning-frame">
             Debe <a href="/login">iniciar sesion</a> para usar el conversor.
         </div>
     }
@@ -20,72 +18,50 @@
     {
         @if (!string.IsNullOrEmpty(mensaje))
         {
-            <div class="alert @(exito ? "alert-success" : "alert-danger")" role="alert">
+            <div class="mensaje-frame @(exito ? "mensaje-exito" : "mensaje-error")">
                 @mensaje
             </div>
         }
 
-        <div class="mb-4">
-            <label for="tipoConversion" class="form-label">Tipo de Conversion</label>
-            <select class="form-select" id="tipoConversion" @bind="tipoSeleccionado">
+        <div class="field-group">
+            <label for="tipoConversion" class="field-label-title">Elija el tipo de unidad para la conversion</label>
+            <select class="field-input" id="tipoConversion" @bind="tipoSeleccionado" @bind:after="OnTipoChanged">
                 <option value="@TipoConversion.Longitud">Longitud</option>
                 <option value="@TipoConversion.Temperatura">Temperatura</option>
                 <option value="@TipoConversion.Masa">Masa</option>
             </select>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col-md-5">
-                <div class="card">
-                    <div class="card-header text-center fw-bold">Origen</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Unidad de Origen</label>
-                            <select class="form-select" @bind="unidadOrigen">
-                                @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
-                                {
-                                    <option value="@unidad">@unidad</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Valor</label>
-                            <input type="number" class="form-control" @bind="valorOrigen" step="any" placeholder="Ingrese el valor" />
-                        </div>
-                    </div>
-                </div>
+        <div class="conversion-grid">
+            <div class="conversion-card">
+                <div class="card-label">Unidad de Origen</div>
+                <select class="field-input-compact" @bind="unidadOrigen">
+                    @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
+                    {
+                        <option value="@unidad">@unidad</option>
+                    }
+                </select>
+                <div class="card-label">Valor</div>
+                <input type="number" class="field-input-compact" @bind="valorOrigen" step="any" placeholder="Ingrese el valor" />
             </div>
 
-            <div class="col-md-2 text-center">
-                <img src="Media/flecha40px.png" alt="Flecha" class="img-fluid my-3" />
+            <div class="conversion-arrow">
+                <img src="Media/flecha40px.png" alt="Flecha" />
             </div>
 
-            <div class="col-md-5">
-                <div class="card">
-                    <div class="card-header text-center fw-bold">Destino</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Unidad de Destino</label>
-                            <select class="form-select" @bind="unidadDestino">
-                                @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
-                                {
-                                    <option value="@unidad">@unidad</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Resultado</label>
-                            <input type="number" class="form-control" @bind="valorDestino" readonly step="any" placeholder="Resultado" />
-                        </div>
-                    </div>
-                </div>
+            <div class="conversion-card">
+                <div class="card-label">Unidad de Destino</div>
+                <select class="field-input-compact" @bind="unidadDestino">
+                    @foreach (var unidad in UnidadesConversion.Unidades[tipoSeleccionado])
+                    {
+                        <option value="@unidad">@unidad</option>
+                    }
+                </select>
+                <div class="card-label">Resultado</div>
+                <input type="number" class="field-input-compact" @bind="valorDestino" readonly step="any" placeholder="Resultado" />
             </div>
-        </div>
 
-        <div class="row mt-4">
-            <div class="col text-center">
-                <button class="btn btn-primary btn-lg px-5" @onclick="Convertir">Convertir</button>
-            </div>
+            <button class="btn-convert" @onclick="Convertir">CONVERTIR</button>
         </div>
     }
 </div>
@@ -109,6 +85,14 @@
         var unidades = UnidadesConversion.Unidades[tipoSeleccionado];
         unidadOrigen = unidades[0];
         unidadDestino = unidades.Count > 1 ? unidades[1] : unidades[0];
+    }
+
+    private void OnTipoChanged()
+    {
+        mensaje = string.Empty;
+        valorOrigen = 0;
+        valorDestino = 0;
+        ActualizarUnidadesPorDefecto();
     }
 
     private async Task Convertir()

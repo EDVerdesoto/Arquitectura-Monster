@@ -14,7 +14,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReferenciaServicioConversion.SolicitudValidarNumerico))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReferenciaServicioConversion.SolicitudConversion))]
     public partial class SolicitudBase : object
@@ -38,7 +38,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudValidarNumerico", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudValidarNumerico", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class SolicitudValidarNumerico : ReferenciaServicioConversion.SolicitudBase
     {
         
@@ -60,7 +60,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudConversion", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitudConversion", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class SolicitudConversion : ReferenciaServicioConversion.SolicitudBase
     {
         
@@ -112,7 +112,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReferenciaServicioConversion.RespuestaValidarNumerico))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReferenciaServicioConversion.RespuestaConversion))]
     public partial class RespuestaBase : object
@@ -151,7 +151,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaValidarNumerico", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaValidarNumerico", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class RespuestaValidarNumerico : ReferenciaServicioConversion.RespuestaBase
     {
         
@@ -173,7 +173,7 @@ namespace ReferenciaServicioConversion
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaConversion", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaConversion", Namespace="http://schemas.datacontract.org/2004/07/ConversionesServerWCF.Modelo")]
     public partial class RespuestaConversion : ReferenciaServicioConversion.RespuestaBase
     {
         

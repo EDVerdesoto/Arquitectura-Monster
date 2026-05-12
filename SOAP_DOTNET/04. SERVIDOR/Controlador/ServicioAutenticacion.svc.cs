@@ -8,7 +8,11 @@ namespace ConversionesServerWCF.Controlador
     {
         public RespuestaCredenciales ValidarCredenciales(SolicitudCredenciales solicitud)
         {
-            if (solicitud != null && AlmacenamientoAutenticación.Usuarios.ContainsKey(solicitud.Usuario) && AlmacenamientoAutenticación.Usuarios[solicitud.Usuario] == solicitud.Clave)
+            if (solicitud != null
+                && !string.IsNullOrEmpty(solicitud.Usuario)
+                && !string.IsNullOrEmpty(solicitud.Clave)
+                && AlmacenamientoAutenticación.Usuarios.ContainsKey(solicitud.Usuario)
+                && AlmacenamientoAutenticación.Usuarios[solicitud.Usuario] == solicitud.Clave)
             {
                 string nuevoToken = Guid.NewGuid().ToString();
                 AlmacenamientoAutenticación.TokensActivos.Add(nuevoToken);

@@ -8,10 +8,13 @@ namespace ConversionesServerWCF.Controlador
     {
         public RespuestaConversion ConvertirLongitud(SolicitudConversion solicitud)
         {
-            if (!AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
+            if (solicitud == null || !AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return new RespuestaConversion { Exito = false, MensajeError = "Unidad no puede estar vacía" };
+
                 double enMetros = solicitud.Valor;
                 switch (solicitud.UnidadOrigen.ToLower())
                 {
@@ -43,10 +46,13 @@ namespace ConversionesServerWCF.Controlador
 
         public RespuestaConversion ConvertirTemperatura(SolicitudConversion solicitud)
         {
-            if (!AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
+            if (solicitud == null || !AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return new RespuestaConversion { Exito = false, MensajeError = "Unidad no puede estar vacía" };
+
                 double enCelsius = solicitud.Valor;
                 switch (solicitud.UnidadOrigen.ToLower())
                 {
@@ -78,10 +84,13 @@ namespace ConversionesServerWCF.Controlador
 
         public RespuestaConversion ConvertirMasa(SolicitudConversion solicitud)
         {
-            if (!AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
+            if (solicitud == null || !AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaConversion { Exito = false, MensajeError = "Token no autorizado" };
 
             try
             {
+                if (string.IsNullOrEmpty(solicitud.UnidadOrigen) || string.IsNullOrEmpty(solicitud.UnidadDestino))
+                    return new RespuestaConversion { Exito = false, MensajeError = "Unidad no puede estar vacía" };
+
                 double enKilogramos = solicitud.Valor;
                 switch (solicitud.UnidadOrigen.ToLower())
                 {
@@ -113,7 +122,10 @@ namespace ConversionesServerWCF.Controlador
 
         public RespuestaValidarNumerico ValidarCampoNumerico(SolicitudValidarNumerico solicitud)
         {
-            if (!AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaValidarNumerico { Exito = false, MensajeError = "Token no autorizado" };
+            if (solicitud == null || !AlmacenamientoAutenticación.ValidarToken(solicitud.Token)) return new RespuestaValidarNumerico { Exito = false, MensajeError = "Token no autorizado" };
+
+            if (string.IsNullOrEmpty(solicitud.ValorStr))
+                return new RespuestaValidarNumerico { Exito = false, MensajeError = "Valor no puede estar vacío" };
 
             bool valido = double.TryParse(solicitud.ValorStr, out _);
             return new RespuestaValidarNumerico { Exito = true, EsValido = valido };
