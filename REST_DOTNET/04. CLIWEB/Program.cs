@@ -12,11 +12,11 @@ builder.Services.AddScoped<AuthControlador>();
 builder.Services.AddScoped<ConversionControlador>();
 builder.Services.AddHttpClient<AuthControlador>(client =>
 {
-    client.BaseAddress = new Uri("https://server_rest.dr00p3r.top/");
+    client.BaseAddress = new Uri("https://serverrest.dr00p3r.top/");
 });
 builder.Services.AddHttpClient<ConversionControlador>(client =>
 {
-    client.BaseAddress = new Uri("https://server_rest.dr00p3r.top/");
+    client.BaseAddress = new Uri("https://serverrest.dr00p3r.top/");
 });
 
 var app = builder.Build();

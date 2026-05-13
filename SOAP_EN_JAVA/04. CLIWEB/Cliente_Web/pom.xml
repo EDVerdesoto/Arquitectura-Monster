@@ -47,49 +47,62 @@
                 <groupId>com.sun.xml.ws</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>4.0.2</version>
+                <configuration>
+                    <vmArgs>
+                        <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                    </vmArgs>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>wsimport-generate-WSLogin</id>
+                        <id>wsimport-generate-WSTemperatura</id>
                         <phase>generate-sources</phase>
-                        <goals><goal>wsimport</goal></goals>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
                         <configuration>
                             <wsdlUrls>
-                                <wsdlUrl>http://localhost:8080/WS_ConUni_Java_GR03/WSLogin?wsdl</wsdlUrl>
+                                <wsdlUrl>https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSTemperatura?WSDL</wsdlUrl>
                             </wsdlUrls>
-                            <packageName>ec.edu.monster.controlador</packageName>
+                            <packageName>ec.edu.monster.clientesws</packageName>
                         </configuration>
                     </execution>
                     <execution>
                         <id>wsimport-generate-WSLongitud</id>
                         <phase>generate-sources</phase>
-                        <goals><goal>wsimport</goal></goals>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
                         <configuration>
                             <wsdlUrls>
-                                <wsdlUrl>http://localhost:8080/WS_ConUni_Java_GR03/WSLongitud?wsdl</wsdlUrl>
+                                <wsdlUrl>https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLongitud?WSDL</wsdlUrl>
                             </wsdlUrls>
-                            <packageName>ec.edu.monster.controlador</packageName>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>wsimport-generate-WSTemperatura</id>
-                        <phase>generate-sources</phase>
-                        <goals><goal>wsimport</goal></goals>
-                        <configuration>
-                            <wsdlUrls>
-                                <wsdlUrl>http://localhost:8080/WS_ConUni_Java_GR03/WSTemperatura?wsdl</wsdlUrl>
-                            </wsdlUrls>
-                            <packageName>ec.edu.monster.controlador</packageName>
+                            <packageName>ec.edu.monster.clientesws</packageName>
                         </configuration>
                     </execution>
                     <execution>
                         <id>wsimport-generate-WSMasa</id>
                         <phase>generate-sources</phase>
-                        <goals><goal>wsimport</goal></goals>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
                         <configuration>
                             <wsdlUrls>
-                                <wsdlUrl>http://localhost:8080/WS_ConUni_Java_GR03/WSMasa?wsdl</wsdlUrl>
+                                <wsdlUrl>https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSMasa?WSDL</wsdlUrl>
                             </wsdlUrls>
-                            <packageName>ec.edu.monster.controlador</packageName>
+                            <packageName>ec.edu.monster.clientesws</packageName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>wsimport-generate-WSLogin</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlUrls>
+                                <wsdlUrl>https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLogin?WSDL</wsdlUrl>
+                            </wsdlUrls>
+                            <packageName>ec.edu.monster.clientesws</packageName>
                         </configuration>
                     </execution>
                 </executions>

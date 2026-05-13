@@ -13,7 +13,7 @@ namespace ClienteConsola.Controlador
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://server_rest.dr00p3r.top/")
+                BaseAddress = new Uri("https://serverrest.dr00p3r.top/")
             };
         }
 

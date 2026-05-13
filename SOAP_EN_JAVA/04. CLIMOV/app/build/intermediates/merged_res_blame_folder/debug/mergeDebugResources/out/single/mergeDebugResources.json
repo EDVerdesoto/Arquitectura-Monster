@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/layout_activity_login.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/layout/activity_login.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_monsterlogin.jpg.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/monsterlogin.jpg"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/xml_data_extraction_rules.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_monster.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/monster.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_bg_button_blue.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/bg_button_blue.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_hand.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/hand.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/layout_item_spinner_dropdown_value.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/layout/item_spinner_dropdown_value.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_bg_input_white.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/bg_input_white.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/xml_backup_rules.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_flecha40px.png.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/flecha40px.png"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/xml_network_security_config.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/layout_item_spinner_value.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/layout/item_spinner_value.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/layout_activity_conversion.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/layout/activity_conversion.xml"
+    },
+    {
+        "merged": "ec.edu.monster.conuniclientemovil.app-debug-32:/drawable_ic_launcher_background.xml.flat",
+        "source": "ec.edu.monster.conuniclientemovil.app-main-34:/drawable/ic_launcher_background.xml"
+    }
+]

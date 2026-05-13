@@ -11,10 +11,8 @@
     import jakarta.servlet.http.HttpServletRequest;
     import jakarta.servlet.http.HttpServletResponse;
     import jakarta.servlet.http.HttpSession;
-
-    import ec.edu.monster.controlador.WSLongitud_Service;
-    import ec.edu.monster.controlador.WSMasa_Service;
-    import ec.edu.monster.controlador.WSTemperatura_Service;
+    import ec.edu.monster.clientesws.*;
+    
     import jakarta.xml.ws.BindingProvider;
     /**
      *

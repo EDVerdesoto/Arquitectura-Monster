@@ -1,0 +1,150 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ec.edu.monster.conuniclientemovil"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:7:5-9:41
+8        android:minSdkVersion="24"
+8-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:8:9-35
+9        android:targetSdkVersion="35" />
+9-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:9:9-38
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:11:5-67
+11-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:11:22-64
+12
+13    <permission
+13-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:13:5-15:47
+14        android:name="ec.edu.monster.conuniclientemovil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:14:9-98
+15        android:protectionLevel="signature" />
+15-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:15:9-44
+16
+17    <uses-permission android:name="ec.edu.monster.conuniclientemovil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:17:5-114
+17-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:17:22-111
+18
+19    <application
+19-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:19:5-81:19
+20        android:allowBackup="true"
+20-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:20:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:21:9-77
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:22:9-65
+23        android:debuggable="true"
+23-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:23:9-34
+24        android:extractNativeLibs="false"
+24-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:24:9-42
+25        android:fullBackupContent="@xml/backup_rules"
+25-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:25:9-54
+26        android:icon="@mipmap/ic_launcher"
+26-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:26:9-43
+27        android:label="@string/app_name"
+27-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:27:9-41
+28        android:networkSecurityConfig="@xml/network_security_config"
+28-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:28:9-69
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:29:9-54
+30        android:supportsRtl="true"
+30-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:30:9-35
+31        android:testOnly="true"
+31-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:31:9-32
+32        android:theme="@style/Theme.ConUniClienteMovil"
+32-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:32:9-56
+33        android:usesCleartextTraffic="true" >
+33-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:33:9-44
+34        <activity
+34-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:34:9-42:20
+35            android:name="ec.edu.monster.conuniclientemovil.view.LoginActivity"
+35-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:35:13-80
+36            android:exported="true" >
+36-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:36:13-36
+37            <intent-filter>
+37-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:37:13-41:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:38:17-69
+38-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:38:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:40:17-77
+40-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:40:27-74
+41            </intent-filter>
+42        </activity>
+43        <activity
+43-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:43:9-45:40
+44            android:name="ec.edu.monster.conuniclientemovil.view.ConversionActivity"
+44-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:44:13-85
+45            android:exported="false" />
+45-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:45:13-37
+46
+47        <provider
+47-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:47:9-60:20
+48            android:name="androidx.startup.InitializationProvider"
+48-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:48:13-67
+49            android:authorities="ec.edu.monster.conuniclientemovil.androidx-startup"
+49-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:49:13-85
+50            android:exported="false" >
+50-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:50:13-37
+51            <meta-data
+51-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:51:13-53:52
+52                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+52-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:52:17-75
+53                android:value="androidx.startup" />
+53-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:53:17-49
+54            <meta-data
+54-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:54:13-56:52
+55                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+55-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:55:17-78
+56                android:value="androidx.startup" />
+56-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:56:17-49
+57            <meta-data
+57-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:57:13-59:52
+58                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+58-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:58:17-85
+59                android:value="androidx.startup" />
+59-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:59:17-49
+60        </provider>
+61
+62        <receiver
+62-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:62:9-80:20
+63            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+63-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:63:13-76
+64            android:directBootAware="false"
+64-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:64:13-44
+65            android:enabled="true"
+65-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:65:13-35
+66            android:exported="true"
+66-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:66:13-36
+67            android:permission="android.permission.DUMP" >
+67-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:67:13-57
+68            <intent-filter>
+68-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:68:13-70:29
+69                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+69-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:69:17-91
+69-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:69:25-88
+70            </intent-filter>
+71            <intent-filter>
+71-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:71:13-73:29
+72                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+72-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:72:17-85
+72-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:72:25-82
+73            </intent-filter>
+74            <intent-filter>
+74-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:74:13-76:29
+75                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+75-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:75:17-88
+75-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:75:25-85
+76            </intent-filter>
+77            <intent-filter>
+77-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:77:13-79:29
+78                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+78-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:78:17-95
+78-->C:\Users\Soto\Music\Arquitectura-Monster\SOAP_EN_JAVA\04. CLIMOV\app\src\main\AndroidManifest.xml:78:25-92
+79            </intent-filter>
+80        </receiver>
+81    </application>
+82
+83</manifest>
