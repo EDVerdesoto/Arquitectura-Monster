@@ -3,7 +3,7 @@ using UIKit;
 
 namespace ClienteMovil
 {
-    public class Program
+    public class MacCatalystProgram
     {
         static void Main(string[] args)
         {
