@@ -31,8 +31,15 @@ public class CORSFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
-        // Permite comunicación con el localhost
-        httpResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        // Permite comunicación desde clientes web y móviles
+        String origin = httpRequest.getHeader("Origin");
+        if ("https://javarest.dr00p3r.top".equals(origin)
+                || "https://javasoap.dr00p3r.top".equals(origin)
+                || "http://localhost:3000".equals(origin)) {
+            httpResponse.setHeader("Access-Control-Allow-Origin", origin);
+        } else {
+            httpResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        }
         httpResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, X-Requested-With, Authorization");
         httpResponse.setHeader("Access-Control-Allow-Credentials", "true");

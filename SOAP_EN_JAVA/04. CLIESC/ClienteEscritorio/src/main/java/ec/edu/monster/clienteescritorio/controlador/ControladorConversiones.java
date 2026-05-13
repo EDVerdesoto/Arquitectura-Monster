@@ -5,6 +5,7 @@
 package ec.edu.monster.clienteescritorio.controlador;
 
 import ec.edu.monster.clientesws.*;
+import jakarta.xml.ws.BindingProvider;
 
 /**
  *
@@ -18,7 +19,9 @@ public class ControladorConversiones {
         
         try {
             WSLogin_Service service = new WSLogin_Service();
-            this.token = service.getWSLoginPort().login(usuario, clave);
+            var portLogin = service.getWSLoginPort();
+            ((BindingProvider) portLogin).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLogin");
+            this.token = portLogin.login(usuario, clave);
             if(this.token.equals(msgCredencialesInvalidas)){
                 System.out.println("Credenciales incorrectas");
                 return false;
@@ -32,16 +35,22 @@ public class ControladorConversiones {
     
     public double convertirLongitud(double valor, String origen, String destino) throws Exception {
         WSLongitud_Service service = new WSLongitud_Service();
-        return service.getWSLongitudPort().convertirLongitud(valor, origen, destino, token);
+        var portLon = service.getWSLongitudPort();
+        ((BindingProvider) portLon).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLongitud");
+        return portLon.convertirLongitud(valor, origen, destino, token);
     }
 
     public double convertirTemperatura(double valor, String origen, String destino) throws Exception {
         WSTemperatura_Service service = new WSTemperatura_Service();
-        return service.getWSTemperaturaPort().convertirTemperatura(valor, origen, destino, token);
+        var portTemp = service.getWSTemperaturaPort();
+        ((BindingProvider) portTemp).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSTemperatura");
+        return portTemp.convertirTemperatura(valor, origen, destino, token);
     }
 
     public double convertirMasa(double valor, String origen, String destino) throws Exception {
         WSMasa_Service service = new WSMasa_Service();
-        return service.getWSMasaPort().convertirMasa(valor, origen, destino, token);
+        var portMas = service.getWSMasaPort();
+        ((BindingProvider) portMas).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSMasa");
+        return portMas.convertirMasa(valor, origen, destino, token);
     }
 }

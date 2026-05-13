@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 
         // 2. Apuntamos a la URL correcta de tu nuevo servidor Payara
         HttpRequest restRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8081/WS_CONV_UNI_RESTFULL_JAVA/auth/login"))
+                .uri(URI.create("https://javarest.dr00p3r.top/WS_CONV_UNI_RESTFULL_JAVA/auth/login"))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();

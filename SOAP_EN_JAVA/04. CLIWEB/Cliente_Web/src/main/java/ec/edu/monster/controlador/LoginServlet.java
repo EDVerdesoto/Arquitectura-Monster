@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.xml.ws.BindingProvider;
 
 /**
  *
@@ -33,6 +34,9 @@ public class LoginServlet extends HttpServlet {
             //Llamar al web service
             WSLogin_Service loginService = new WSLogin_Service();
             var portLogin = loginService.getWSLoginPort();
+            ((BindingProvider) portLogin).getRequestContext().put(
+                BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
+                "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLogin");
 
             String token = portLogin.login(user, pass);
 

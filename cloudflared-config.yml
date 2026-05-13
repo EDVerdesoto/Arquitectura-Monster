@@ -1,0 +1,18 @@
+# Cloudflare Tunnel configuration
+# Run with: cloudflared tunnel --config config.yml run
+#
+# Zero Trust Dashboard setup (recomendado):
+#   tunnel: <TU_TUNNEL_ID>
+#   credentials-file: C:\Users\<usuario>\.cloudflared\<tunnel-id>.json
+#   Ambos hostnames -> Service URL: localhost:8080 (sin path)
+#   El context path va en la URL del cliente
+
+tunnel: <TU_TUNNEL_ID>
+credentials-file: C:\Users\<usuario>\.cloudflared\<tunnel-id>.json
+
+ingress:
+  - hostname: javasoap.dr00p3r.top
+    service: http://localhost:8080
+  - hostname: javarest.dr00p3r.top
+    service: http://localhost:8080
+  - service: http_status:404

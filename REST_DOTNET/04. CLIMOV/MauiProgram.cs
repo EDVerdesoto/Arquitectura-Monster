@@ -22,13 +22,13 @@ namespace ClienteMovil
 
             builder.Services.AddTransient(sp =>
             {
-                var client = new HttpClient { BaseAddress = new Uri("https://server_rest.dr00p3r.top/") };
+                var client = new HttpClient { BaseAddress = new Uri("https://serverrest.dr00p3r.top/") };
                 return new AuthControlador(sp.GetRequiredService<ServicioSesion>(), client);
             });
 
             builder.Services.AddTransient(sp =>
             {
-                var client = new HttpClient { BaseAddress = new Uri("https://server_rest.dr00p3r.top/") };
+                var client = new HttpClient { BaseAddress = new Uri("https://serverrest.dr00p3r.top/") };
                 return new ConversionControlador(sp.GetRequiredService<ServicioSesion>(), client);
             });
 

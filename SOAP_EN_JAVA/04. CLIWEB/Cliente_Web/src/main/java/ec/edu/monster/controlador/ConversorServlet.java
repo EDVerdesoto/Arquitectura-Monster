@@ -15,6 +15,7 @@
     import ec.edu.monster.controlador.WSLongitud_Service;
     import ec.edu.monster.controlador.WSMasa_Service;
     import ec.edu.monster.controlador.WSTemperatura_Service;
+    import jakarta.xml.ws.BindingProvider;
     /**
      *
      * @author Soto
@@ -56,6 +57,7 @@
                             break;
                         }
                         var portLon = new WSLongitud_Service().getWSLongitudPort();
+                        ((BindingProvider) portLon).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSLongitud");
                         resultado = portLon.convertirLongitud(valor, origen, destino, token);
                         break;
                     case "masa":
@@ -64,10 +66,12 @@
                             break;
                         }
                         var portMas = new WSMasa_Service().getWSMasaPort();
+                        ((BindingProvider) portMas).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSMasa");
                         resultado = portMas.convertirMasa(valor, origen, destino, token);
                         break;
                     case "temperatura":
                         var portTemp = new WSTemperatura_Service().getWSTemperaturaPort();
+                        ((BindingProvider) portTemp).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/WSTemperatura");
                         resultado = portTemp.convertirTemperatura(valor, origen, destino, token);
                         break;
                 }

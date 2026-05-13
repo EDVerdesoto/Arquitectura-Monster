@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String EXTRA_TOKEN = "extra_token";
     public static final String EXTRA_BASE_URL = "extra_base_url";
 
-    private static final String DEFAULT_BASE_URL = "http://10.0.2.2:8080/WS_ConUni_Java_GR03/";
+    private static final String DEFAULT_BASE_URL = "https://javasoap.dr00p3r.top/WS_ConUni_Java_GR03/";
 
     /* ── Widgets ─────────────────────────────────── */
     private EditText etUsuario;
