@@ -1363,8 +1363,8 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o8">
 <a:CreationDate>1622769712</a:CreationDate>
 <a:ModificationDate>1632929849</a:ModificationDate>
-<a:Rect>((5932,185), (14950,10809))</a:Rect>
-<a:ListOfPoints>((6332,9764),(12400,9764),(12400,585))</a:ListOfPoints>
+<a:Rect>((5932,185), (14910,10816))</a:Rect>
+<a:ListOfPoints>((6332,9764),(12325,9764),(12325,585))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -1384,8 +1384,8 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o12">
 <a:CreationDate>1622769714</a:CreationDate>
 <a:ModificationDate>1632929849</a:ModificationDate>
-<a:Rect>((12169,-8543), (19962,-1266))</a:Rect>
-<a:ListOfPoints>((17412,-1666),(17412,-7843),(12569,-7843))</a:ListOfPoints>
+<a:Rect>((12461,-8543), (20037,-1266))</a:Rect>
+<a:ListOfPoints>((17452,-1666),(17452,-7843),(12861,-7843))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -1405,8 +1405,8 @@ Shadow=0</a:DisplayPreferences>
 <o:UseCaseAssociationSymbol Id="o15">
 <a:CreationDate>1622769739</a:CreationDate>
 <a:ModificationDate>1632929846</a:ModificationDate>
-<a:Rect>((-5124,2599), (1910,10074))</a:Rect>
-<a:ListOfPoints>((-4724,2999),(-4724,9674),(1510,9674))</a:ListOfPoints>
+<a:Rect>((-5124,2599), (1701,10074))</a:Rect>
+<a:ListOfPoints>((-4724,2999),(-4724,9674),(1301,9674))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1509,7 +1509,7 @@ Shadow=0</a:DisplayPreferences>
 <o:UseCaseSymbol Id="o9">
 <a:CreationDate>1622769698</a:CreationDate>
 <a:ModificationDate>1632929846</a:ModificationDate>
-<a:Rect>((1510,7065), (11154,12464))</a:Rect>
+<a:Rect>((1301,7065), (11363,12464))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
 <a:FillColor>16777152</a:FillColor>
@@ -1527,7 +1527,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:UseCaseSymbol Id="o13">
 <a:CreationDate>1622769699</a:CreationDate>
 <a:ModificationDate>1632929842</a:ModificationDate>
-<a:Rect>((1509,-9942), (12925,-4543))</a:Rect>
+<a:Rect>((1198,-9942), (13236,-4543))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
 <a:FillColor>16777152</a:FillColor>
@@ -1545,7 +1545,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:UseCaseSymbol Id="o10">
 <a:CreationDate>1622769700</a:CreationDate>
 <a:ModificationDate>1632929849</a:ModificationDate>
-<a:Rect>((11052,-2265), (20302,3134))</a:Rect>
+<a:Rect>((10947,-2265), (20407,3134))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
 <a:FillColor>16777152</a:FillColor>
